@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+//WELCOME PAGE
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
