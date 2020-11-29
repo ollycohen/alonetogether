@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4DDF8CCB2572C3DA00E40719 /* geography-class_medres.mbtiles in Resources */ = {isa = PBXBuildFile; fileRef = 4DDF8CCA2572C3DA00E40719 /* geography-class_medres.mbtiles */; };
+		4D858B9025744D9400E4D546 /* geography-class_medres.mbtiles in Resources */ = {isa = PBXBuildFile; fileRef = 4D858B8F25744D9400E4D546 /* geography-class_medres.mbtiles */; };
 		4DF68A1F2561EA1000123B36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF68A1E2561EA1000123B36 /* AppDelegate.swift */; };
 		4DF68A212561EA1000123B36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF68A202561EA1000123B36 /* SceneDelegate.swift */; };
 		4DF68A232561EA1000123B36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF68A222561EA1000123B36 /* ViewController.swift */; };
@@ -72,7 +72,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4DDF8CCA2572C3DA00E40719 /* geography-class_medres.mbtiles */ = {isa = PBXFileReference; lastKnownFileType = file; path = "geography-class_medres.mbtiles"; sourceTree = "<group>"; };
+		4D858B8F25744D9400E4D546 /* geography-class_medres.mbtiles */ = {isa = PBXFileReference; lastKnownFileType = file; path = "geography-class_medres.mbtiles"; sourceTree = "<group>"; };
 		4DF68A1B2561EA1000123B36 /* AloneTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AloneTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF68A1E2561EA1000123B36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DF68A202561EA1000123B36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,9 +122,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D858B8C25744D3B00E4D546 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4D858B8F25744D9400E4D546 /* geography-class_medres.mbtiles */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		4DF68A122561EA0F00123B36 = {
 			isa = PBXGroup;
 			children = (
+				4D858B8C25744D3B00E4D546 /* Resources */,
 				4DF68A1D2561EA1000123B36 /* AloneTogether */,
 				4DF68A372561EA1800123B36 /* AloneTogetherTests */,
 				4DF68A422561EA1800123B36 /* AloneTogetherUITests */,
@@ -146,7 +155,6 @@
 		4DF68A1D2561EA1000123B36 /* AloneTogether */ = {
 			isa = PBXGroup;
 			children = (
-				4DDF8CCA2572C3DA00E40719 /* geography-class_medres.mbtiles */,
 				4DF68A1E2561EA1000123B36 /* AppDelegate.swift */,
 				4DF68A202561EA1000123B36 /* SceneDelegate.swift */,
 				4DF68A222561EA1000123B36 /* ViewController.swift */,
@@ -263,7 +271,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = "Oliver K Cohen";
 				TargetAttributes = {
 					4DF68A1A2561EA1000123B36 = {
@@ -327,7 +335,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DDF8CCB2572C3DA00E40719 /* geography-class_medres.mbtiles in Resources */,
+				4D858B9025744D9400E4D546 /* geography-class_medres.mbtiles in Resources */,
 				4DF68A2E2561EA1700123B36 /* LaunchScreen.storyboard in Resources */,
 				4DF68A2B2561EA1700123B36 /* Assets.xcassets in Resources */,
 				4DF68A262561EA1000123B36 /* Main.storyboard in Resources */,
@@ -444,6 +452,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -504,6 +513,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
