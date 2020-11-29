@@ -11,8 +11,7 @@ import UIKit
 class Main_ViewController: UIViewController {
 
     private var whirlyVC: WhirlyGlobeViewController?
-    var mbTilesFetcher : MaplyMBTileFetcher? = nil
-    var imageLoader : MaplyQuadImageLoader? = nil
+
     
     @IBOutlet weak var centralView: UIView!
     
@@ -22,10 +21,11 @@ class Main_ViewController: UIViewController {
         centralView.addSubview(whirlyVC!.view)
         whirlyVC!.view.frame = centralView.bounds
         
+        var mbTilesFetcher : MaplyMBTileFetcher? = nil
+        var imageLoader : MaplyQuadImageLoader? = nil
+
         let globeVC = whirlyVC as? WhirlyGlobeViewController
         let mapVC = whirlyVC as? MaplyViewController
-        
-        
           
         // we want a black background for a globe, a white background for a map.
         whirlyVC!.clearColor = (globeVC != nil) ? UIColor.black : UIColor.white
