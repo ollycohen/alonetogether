@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4DDF8CCB2572C3DA00E40719 /* geography-class_medres.mbtiles in Resources */ = {isa = PBXBuildFile; fileRef = 4DDF8CCA2572C3DA00E40719 /* geography-class_medres.mbtiles */; };
 		4DF68A1F2561EA1000123B36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF68A1E2561EA1000123B36 /* AppDelegate.swift */; };
 		4DF68A212561EA1000123B36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF68A202561EA1000123B36 /* SceneDelegate.swift */; };
 		4DF68A232561EA1000123B36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF68A222561EA1000123B36 /* ViewController.swift */; };
@@ -16,6 +17,8 @@
 		4DF68A2E2561EA1700123B36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DF68A2C2561EA1700123B36 /* LaunchScreen.storyboard */; };
 		4DF68A392561EA1800123B36 /* AloneTogetherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF68A382561EA1800123B36 /* AloneTogetherTests.swift */; };
 		4DF68A442561EA1800123B36 /* AloneTogetherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF68A432561EA1800123B36 /* AloneTogetherUITests.swift */; };
+		4DFBF7F7256D9FE7000A9740 /* WhirlyGlobeMaplyComponent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DFBF7F3256D9FA9000A9740 /* WhirlyGlobeMaplyComponent.framework */; };
+		4DFBF7F8256D9FE7000A9740 /* WhirlyGlobeMaplyComponent.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4DFBF7F3256D9FA9000A9740 /* WhirlyGlobeMaplyComponent.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		51673101256884950091CA0A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51673100256884950091CA0A /* SignInViewController.swift */; };
 		517BCC6C25685F8B00971283 /* Main_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517BCC6B25685F8B00971283 /* Main_ViewController.swift */; };
 		517BCC6E2568614300971283 /* MindPopup_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517BCC6D2568614300971283 /* MindPopup_ViewController.swift */; };
@@ -38,9 +41,38 @@
 			remoteGlobalIDString = 4DF68A1A2561EA1000123B36;
 			remoteInfo = AloneTogether;
 		};
+		4DFBF7F2256D9FA9000A9740 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4DFBF7ED256D9FA9000A9740 /* WhirlyGlobeMaplyComponent.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2BE536FF1D2499E500B60FAD;
+			remoteInfo = WhirlyGlobeMaplyComponent;
+		};
+		4DFBF7F4256D9FA9000A9740 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4DFBF7ED256D9FA9000A9740 /* WhirlyGlobeMaplyComponent.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2BE537091D2499E500B60FAD;
+			remoteInfo = WhirlyGlobeMaplyComponentTests;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4DFBF7F9256D9FE7000A9740 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4DFBF7F8256D9FE7000A9740 /* WhirlyGlobeMaplyComponent.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		4DDF8CCA2572C3DA00E40719 /* geography-class_medres.mbtiles */ = {isa = PBXFileReference; lastKnownFileType = file; path = "geography-class_medres.mbtiles"; sourceTree = "<group>"; };
 		4DF68A1B2561EA1000123B36 /* AloneTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AloneTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF68A1E2561EA1000123B36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DF68A202561EA1000123B36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +88,7 @@
 		4DF68A3F2561EA1800123B36 /* AloneTogetherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AloneTogetherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF68A432561EA1800123B36 /* AloneTogetherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AloneTogetherUITests.swift; sourceTree = "<group>"; };
 		4DF68A452561EA1800123B36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DFBF7ED256D9FA9000A9740 /* WhirlyGlobeMaplyComponent.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WhirlyGlobeMaplyComponent.xcodeproj; path = "libs/WhirlyGlobeMaply/ios/library/WhirlyGlobe-MaplyComponent/WhirlyGlobeMaplyComponent.xcodeproj"; sourceTree = "<group>"; };
 		51673100256884950091CA0A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		517BCC6B25685F8B00971283 /* Main_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main_ViewController.swift; sourceTree = "<group>"; };
 		517BCC6D2568614300971283 /* MindPopup_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindPopup_ViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DFBF7F7256D9FE7000A9740 /* WhirlyGlobeMaplyComponent.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +129,7 @@
 				4DF68A372561EA1800123B36 /* AloneTogetherTests */,
 				4DF68A422561EA1800123B36 /* AloneTogetherUITests */,
 				4DF68A1C2561EA1000123B36 /* Products */,
+				4DFBF7EC256D9FA8000A9740 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +146,7 @@
 		4DF68A1D2561EA1000123B36 /* AloneTogether */ = {
 			isa = PBXGroup;
 			children = (
+				4DDF8CCA2572C3DA00E40719 /* geography-class_medres.mbtiles */,
 				4DF68A1E2561EA1000123B36 /* AppDelegate.swift */,
 				4DF68A202561EA1000123B36 /* SceneDelegate.swift */,
 				4DF68A222561EA1000123B36 /* ViewController.swift */,
@@ -146,6 +182,23 @@
 			path = AloneTogetherUITests;
 			sourceTree = "<group>";
 		};
+		4DFBF7EC256D9FA8000A9740 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4DFBF7ED256D9FA9000A9740 /* WhirlyGlobeMaplyComponent.xcodeproj */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4DFBF7EE256D9FA9000A9740 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4DFBF7F3256D9FA9000A9740 /* WhirlyGlobeMaplyComponent.framework */,
+				4DFBF7F5256D9FA9000A9740 /* WhirlyGlobeMaplyComponentTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -156,6 +209,7 @@
 				4DF68A172561EA1000123B36 /* Sources */,
 				4DF68A182561EA1000123B36 /* Frameworks */,
 				4DF68A192561EA1000123B36 /* Resources */,
+				4DFBF7F9256D9FE7000A9740 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -236,6 +290,12 @@
 			mainGroup = 4DF68A122561EA0F00123B36;
 			productRefGroup = 4DF68A1C2561EA1000123B36 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 4DFBF7EE256D9FA9000A9740 /* Products */;
+					ProjectRef = 4DFBF7ED256D9FA9000A9740 /* WhirlyGlobeMaplyComponent.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				4DF68A1A2561EA1000123B36 /* AloneTogether */,
@@ -245,11 +305,29 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		4DFBF7F3256D9FA9000A9740 /* WhirlyGlobeMaplyComponent.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = WhirlyGlobeMaplyComponent.framework;
+			remoteRef = 4DFBF7F2256D9FA9000A9740 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4DFBF7F5256D9FA9000A9740 /* WhirlyGlobeMaplyComponentTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = WhirlyGlobeMaplyComponentTests.xctest;
+			remoteRef = 4DFBF7F4256D9FA9000A9740 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		4DF68A192561EA1000123B36 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DDF8CCB2572C3DA00E40719 /* geography-class_medres.mbtiles in Resources */,
 				4DF68A2E2561EA1700123B36 /* LaunchScreen.storyboard in Resources */,
 				4DF68A2B2561EA1700123B36 /* Assets.xcassets in Resources */,
 				4DF68A262561EA1000123B36 /* Main.storyboard in Resources */,
@@ -460,13 +538,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G94Y9HDGA5;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/libs/WhirlyGlobeMaply/ios/library/WhirlyGlobe-MaplyComponent/include/";
 				INFOPLIST_FILE = AloneTogether/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.AloneTogether;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "libs/WhirlyGlobeMaply/ios/library/WhirlyGlobe-MaplyComponent/include/MaplyBridge.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -478,13 +559,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G94Y9HDGA5;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/libs/WhirlyGlobeMaply/ios/library/WhirlyGlobe-MaplyComponent/include/";
 				INFOPLIST_FILE = AloneTogether/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.AloneTogether;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "libs/WhirlyGlobeMaply/ios/library/WhirlyGlobe-MaplyComponent/include/MaplyBridge.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
