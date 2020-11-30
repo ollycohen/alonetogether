@@ -22,6 +22,9 @@
 		517BCC6E2568614300971283 /* MindPopup_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517BCC6D2568614300971283 /* MindPopup_ViewController.swift */; };
 		517BCC702568615100971283 /* BodyPopup_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517BCC6F2568615100971283 /* BodyPopup_ViewController.swift */; };
 		517BCC722568666100971283 /* HashtagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517BCC712568666100971283 /* HashtagsViewController.swift */; };
+		51B0D0A1257469E6005DFCB4 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B0D0A0257469E6005DFCB4 /* RegisterUserViewController.swift */; };
+		51B0D0A925746A0B005DFCB4 /* GuestUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B0D0A825746A0B005DFCB4 /* GuestUserViewController.swift */; };
+		51B0D0B825747CC6005DFCB4 /* SignIn_updatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B0D0B725747CC6005DFCB4 /* SignIn_updatedViewController.swift */; };
 		904C4D606D558D21F6CD7D40 /* Pods_AloneTogetherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BD88C1AEDFC31B2284E9BD /* Pods_AloneTogetherTests.framework */; };
 		96EBB26A2573050600C36325 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96EBB2692573050600C36325 /* GoogleService-Info.plist */; };
 		E1F1E1493B28D9404824AE12 /* Pods_AloneTogether.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A021F8187A21B5B75B021CF9 /* Pods_AloneTogether.framework */; };
@@ -67,6 +70,9 @@
 		517BCC6D2568614300971283 /* MindPopup_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindPopup_ViewController.swift; sourceTree = "<group>"; };
 		517BCC6F2568615100971283 /* BodyPopup_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPopup_ViewController.swift; sourceTree = "<group>"; };
 		517BCC712568666100971283 /* HashtagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashtagsViewController.swift; sourceTree = "<group>"; };
+		51B0D0A0257469E6005DFCB4 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
+		51B0D0A825746A0B005DFCB4 /* GuestUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestUserViewController.swift; sourceTree = "<group>"; };
+		51B0D0B725747CC6005DFCB4 /* SignIn_updatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn_updatedViewController.swift; sourceTree = "<group>"; };
 		78BC8C432DF112462C4BA54A /* Pods-AloneTogether.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AloneTogether.release.xcconfig"; path = "Target Support Files/Pods-AloneTogether/Pods-AloneTogether.release.xcconfig"; sourceTree = "<group>"; };
 		96EBB2692573050600C36325 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A021F8187A21B5B75B021CF9 /* Pods_AloneTogether.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AloneTogether.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +128,11 @@
 			isa = PBXGroup;
 			children = (
 				4DF68A1D2561EA1000123B36 /* AloneTogether */,
+				96EBB2692573050600C36325 /* GoogleService-Info.plist */,
+				4DF68A1E2561EA1000123B36 /* AppDelegate.swift */,
+				4DF68A202561EA1000123B36 /* SceneDelegate.swift */,
+				4DF68A2A2561EA1700123B36 /* Assets.xcassets */,
+				4DF68A272561EA1000123B36 /* AloneTogether.xcdatamodeld */,
 				4DF68A372561EA1800123B36 /* AloneTogetherTests */,
 				4DF68A422561EA1800123B36 /* AloneTogetherUITests */,
 				4DF68A1C2561EA1000123B36 /* Products */,
@@ -143,20 +154,10 @@
 		4DF68A1D2561EA1000123B36 /* AloneTogether */ = {
 			isa = PBXGroup;
 			children = (
-				96EBB2692573050600C36325 /* GoogleService-Info.plist */,
-				4DF68A1E2561EA1000123B36 /* AppDelegate.swift */,
-				4DF68A202561EA1000123B36 /* SceneDelegate.swift */,
-				4DF68A222561EA1000123B36 /* ViewController.swift */,
-				4DF68A242561EA1000123B36 /* Main.storyboard */,
-				517BCC712568666100971283 /* HashtagsViewController.swift */,
-				51673100256884950091CA0A /* SignInViewController.swift */,
-				517BCC6F2568615100971283 /* BodyPopup_ViewController.swift */,
-				517BCC6D2568614300971283 /* MindPopup_ViewController.swift */,
-				517BCC6B25685F8B00971283 /* Main_ViewController.swift */,
-				4DF68A2A2561EA1700123B36 /* Assets.xcassets */,
-				4DF68A2C2561EA1700123B36 /* LaunchScreen.storyboard */,
 				4DF68A2F2561EA1700123B36 /* Info.plist */,
-				4DF68A272561EA1000123B36 /* AloneTogether.xcdatamodeld */,
+				51B0D0AF25746A39005DFCB4 /* V */,
+				51B0D0AE25746A32005DFCB4 /* M */,
+				51B0D0B025746A3F005DFCB4 /* C */,
 			);
 			path = AloneTogether;
 			sourceTree = "<group>";
@@ -177,6 +178,38 @@
 				4DF68A452561EA1800123B36 /* Info.plist */,
 			);
 			path = AloneTogetherUITests;
+			sourceTree = "<group>";
+		};
+		51B0D0AE25746A32005DFCB4 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		51B0D0AF25746A39005DFCB4 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				4DF68A2C2561EA1700123B36 /* LaunchScreen.storyboard */,
+				4DF68A242561EA1000123B36 /* Main.storyboard */,
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		51B0D0B025746A3F005DFCB4 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				4DF68A222561EA1000123B36 /* ViewController.swift */,
+				517BCC712568666100971283 /* HashtagsViewController.swift */,
+				51673100256884950091CA0A /* SignInViewController.swift */,
+				51B0D0B725747CC6005DFCB4 /* SignIn_updatedViewController.swift */,
+				517BCC6F2568615100971283 /* BodyPopup_ViewController.swift */,
+				517BCC6D2568614300971283 /* MindPopup_ViewController.swift */,
+				517BCC6B25685F8B00971283 /* Main_ViewController.swift */,
+				51B0D0A0257469E6005DFCB4 /* RegisterUserViewController.swift */,
+				51B0D0A825746A0B005DFCB4 /* GuestUserViewController.swift */,
+			);
+			path = C;
 			sourceTree = "<group>";
 		};
 		7861209B1DB393013DF38BBA /* Frameworks */ = {
@@ -429,10 +462,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51B0D0A1257469E6005DFCB4 /* RegisterUserViewController.swift in Sources */,
 				4DF68A232561EA1000123B36 /* ViewController.swift in Sources */,
 				517BCC722568666100971283 /* HashtagsViewController.swift in Sources */,
 				4DF68A1F2561EA1000123B36 /* AppDelegate.swift in Sources */,
 				4DF68A212561EA1000123B36 /* SceneDelegate.swift in Sources */,
+				51B0D0A925746A0B005DFCB4 /* GuestUserViewController.swift in Sources */,
+				51B0D0B825747CC6005DFCB4 /* SignIn_updatedViewController.swift in Sources */,
 				517BCC702568615100971283 /* BodyPopup_ViewController.swift in Sources */,
 				51673101256884950091CA0A /* SignInViewController.swift in Sources */,
 				4DF68A292561EA1000123B36 /* AloneTogether.xcdatamodeld in Sources */,
