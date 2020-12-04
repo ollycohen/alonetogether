@@ -91,6 +91,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         destination.country = self.country
     
     }
+    override func viewWillAppear(_ animated: Bool) {
+          super.viewWillAppear(animated)
+          hideNavigationBar(animated: animated)
+      }
+
+      override func viewWillDisappear(_ animated: Bool) {
+          super.viewWillDisappear(animated)
+          showNavigationBar(animated: animated)
+      }
     
 }
 

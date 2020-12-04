@@ -9,6 +9,12 @@
 import UIKit
 import FirebaseDatabase
 class Main_ViewController: UIViewController {
+    @IBOutlet weak var bodybtn: UIButton!
+    @IBOutlet weak var mindbtn: UIButton!
+    @IBOutlet weak var causebtn: UIButton!
+    @IBOutlet weak var givebtn: UIButton!
+    @IBOutlet weak var receivebtn: UIButton!
+    
     
     //global variables_start
     var ref = Database.database().reference()
@@ -28,6 +34,12 @@ class Main_ViewController: UIViewController {
         super.viewDidLoad()
         print ( name+" says hello from " + city + " , " + country)
         // Do any additional setup after loading the view.
+        
+        mindbtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
+        bodybtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
+        causebtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
+        givebtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
+        receivebtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
     }
     
     //GIVE PRESSED
@@ -54,6 +66,7 @@ class Main_ViewController: UIViewController {
         ref.child("Active_Recieves").childByAutoId().setValue(data)
         print("recieved pressed")
     }
+    
     /*
     // MARK: - Navigation
 

@@ -271,35 +271,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stars" translatesAutoresizingMaskIntoConstraints="NO" id="ZDU-my-748">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="J1z-oo-z9l" userLabel="Top Stack">
                                 <rect key="frame" x="0.0" y="88" width="414" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gwl-6m-8FT" userLabel="activity_btn">
                                         <rect key="frame" x="0.0" y="0.0" width="207" height="70"/>
-                                        <color key="backgroundColor" red="0.98410397770000002" green="0.93451142310000002" blue="0.82350128889999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="19"/>
                                         <state key="normal" title="Meditate">
-                                            <color key="titleColor" systemColor="darkTextColor"/>
+                                            <color key="titleColor" systemColor="systemTealColor"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="regular"/>
                                         </state>
                                         <connections>
-                                            <segue destination="A1H-eF-gdp" kind="presentation" animates="NO" id="nnM-LQ-Bks"/>
+                                            <segue destination="A1H-eF-gdp" kind="presentation" id="nnM-LQ-Bks"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZGO-ua-a2A" userLabel="mental_btn">
                                         <rect key="frame" x="207" y="0.0" width="207" height="70"/>
-                                        <color key="backgroundColor" red="0.83165067429999995" green="0.91277259590000004" blue="0.98824137450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <state key="normal" title="Heal">
-                                            <color key="titleColor" systemColor="darkTextColor"/>
+                                            <color key="titleColor" systemColor="systemTealColor"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="regular"/>
                                         </state>
                                         <connections>
-                                            <segue destination="2o6-uI-Ucf" kind="presentation" animates="NO" id="2EZ-iw-4Il"/>
+                                            <segue destination="2o6-uI-Ucf" kind="presentation" id="2EZ-iw-4Il"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.98410397770000002" green="0.93451142310000002" blue="0.82350128889999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="ynz-ue-nVV"/>
                                 </constraints>
@@ -309,10 +311,9 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ltw-Jj-OUo" userLabel="give_btn">
                                         <rect key="frame" x="0.0" y="0.0" width="207" height="70"/>
-                                        <color key="backgroundColor" red="0.95644682650000001" green="0.78231340650000003" blue="0.59210574630000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <state key="normal" title="Give">
-                                            <color key="titleColor" systemColor="darkTextColor"/>
+                                            <color key="titleColor" systemColor="systemTealColor"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="regular"/>
                                         </state>
                                         <connections>
@@ -321,10 +322,9 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ef5-2R-Y3I" userLabel="receive_btn">
                                         <rect key="frame" x="207" y="0.0" width="207" height="70"/>
-                                        <color key="backgroundColor" red="0.69821274280000001" green="0.6291179657" blue="0.80001634359999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                         <state key="normal" title="Receive">
-                                            <color key="titleColor" systemColor="darkTextColor"/>
+                                            <color key="titleColor" systemColor="systemTealColor"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="regular"/>
                                         </state>
                                         <connections>
@@ -332,24 +332,18 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.98410397770000002" green="0.93451142310000002" blue="0.82350128889999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="MI2-D1-miF"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="oAf-a8-pn6"/>
                                 </constraints>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VOm-nt-ghW" userLabel="central_view">
-                                <rect key="frame" x="0.0" y="188" width="414" height="555"/>
-                                <color key="backgroundColor" systemColor="systemTealColor"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J4M-gh-ziI" userLabel="hashtag_btn">
                                 <rect key="frame" x="0.0" y="158" width="414" height="30"/>
-                                <color key="backgroundColor" red="0.89783257250000004" green="0.74918621780000005" blue="0.74116426710000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Hxf-3y-scv"/>
                                 </constraints>
                                 <state key="normal" title="#WorldPeace">
-                                    <color key="titleColor" systemColor="darkTextColor"/>
+                                    <color key="titleColor" systemColor="systemTealColor"/>
                                 </state>
                                 <connections>
                                     <segue destination="QRW-Ot-a3j" kind="presentation" id="s61-Z5-W3T"/>
@@ -360,23 +354,34 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="J4M-gh-ziI" firstAttribute="top" secondItem="J1z-oo-z9l" secondAttribute="bottom" id="1aP-qh-6nm"/>
-                            <constraint firstItem="VOm-nt-ghW" firstAttribute="leading" secondItem="uoP-Mr-aZB" secondAttribute="leading" id="KhS-NM-phJ"/>
+                            <constraint firstItem="ZDU-my-748" firstAttribute="leading" secondItem="uoP-Mr-aZB" secondAttribute="leading" id="5aZ-rO-SxL"/>
+                            <constraint firstAttribute="bottom" secondItem="ZDU-my-748" secondAttribute="bottom" id="K5F-Ir-ikT"/>
                             <constraint firstItem="J1z-oo-z9l" firstAttribute="leading" secondItem="uoP-Mr-aZB" secondAttribute="leading" id="PWw-WZ-emR"/>
+                            <constraint firstItem="ZDU-my-748" firstAttribute="top" secondItem="uoP-Mr-aZB" secondAttribute="top" id="Rdp-k3-nhI"/>
                             <constraint firstItem="uoP-Mr-aZB" firstAttribute="trailing" secondItem="FCj-Jx-THU" secondAttribute="trailing" id="S2p-17-EoH"/>
-                            <constraint firstItem="uoP-Mr-aZB" firstAttribute="trailing" secondItem="VOm-nt-ghW" secondAttribute="trailing" id="ccS-NU-0ZA"/>
-                            <constraint firstItem="VOm-nt-ghW" firstAttribute="top" secondItem="J4M-gh-ziI" secondAttribute="bottom" id="dcD-UQ-3FU"/>
-                            <constraint firstItem="FCj-Jx-THU" firstAttribute="top" secondItem="VOm-nt-ghW" secondAttribute="bottom" id="fo4-O8-HGd"/>
                             <constraint firstItem="J1z-oo-z9l" firstAttribute="trailing" secondItem="uoP-Mr-aZB" secondAttribute="trailing" id="jgR-wQ-gCL"/>
                             <constraint firstItem="J1z-oo-z9l" firstAttribute="top" secondItem="uoP-Mr-aZB" secondAttribute="top" id="kfk-Td-yV0"/>
                             <constraint firstItem="FCj-Jx-THU" firstAttribute="leading" secondItem="uoP-Mr-aZB" secondAttribute="leading" id="lWp-df-Gbk"/>
                             <constraint firstItem="J4M-gh-ziI" firstAttribute="trailing" secondItem="uoP-Mr-aZB" secondAttribute="trailing" id="qXH-4e-dYi"/>
                             <constraint firstItem="uoP-Mr-aZB" firstAttribute="bottom" secondItem="FCj-Jx-THU" secondAttribute="bottom" id="rJ2-5g-ngH"/>
                             <constraint firstItem="J4M-gh-ziI" firstAttribute="leading" secondItem="uoP-Mr-aZB" secondAttribute="leading" id="vBH-yN-oRw"/>
+                            <constraint firstItem="uoP-Mr-aZB" firstAttribute="trailing" secondItem="ZDU-my-748" secondAttribute="trailing" id="vhQ-d5-Tmi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="g6G-Cp-R8f">
-                        <barButtonItem key="rightBarButtonItem" title="userInfo_btn" image="person.crop.rectangle.fill" catalog="system" id="Dq6-QY-lRb"/>
+                        <barButtonItem key="rightBarButtonItem" title="userInfo_btn" image="person.crop.rectangle.fill" catalog="system" id="Dq6-QY-lRb">
+                            <connections>
+                                <segue destination="ah2-Zj-RhX" kind="show" id="RzI-Vc-bg4"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bodybtn" destination="Gwl-6m-8FT" id="Z3y-9N-afl"/>
+                        <outlet property="causebtn" destination="J4M-gh-ziI" id="kI6-us-NSy"/>
+                        <outlet property="givebtn" destination="Ltw-Jj-OUo" id="dE3-Uc-h6T"/>
+                        <outlet property="mindbtn" destination="ZGO-ua-a2A" id="Ogj-GI-Q3u"/>
+                        <outlet property="receivebtn" destination="Ef5-2R-Y3I" id="37h-Ok-ZWY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KmP-X7-aAZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -449,7 +454,6 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oKX-rM-hkb"/>
-                        <color key="backgroundColor" red="0.66270381258365407" green="0.67676613763734927" blue="0.74523831881009617" alpha="0.39973264127164276" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="AJ5-dL-iHU" firstAttribute="height" secondItem="eT7-B5-NFU" secondAttribute="height" multiplier="0.5" id="X8z-N0-0js"/>
                             <constraint firstItem="AJ5-dL-iHU" firstAttribute="centerX" secondItem="oKX-rM-hkb" secondAttribute="centerX" id="Y2s-dQ-Eeg"/>
@@ -551,7 +555,6 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AIc-pw-Eul"/>
-                        <color key="backgroundColor" red="0.6627038126" green="0.67676613760000004" blue="0.74523831880000002" alpha="0.39973264130000002" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="ZVp-Zo-Njq" firstAttribute="centerX" secondItem="AIc-pw-Eul" secondAttribute="centerX" id="1NB-Bo-I6i"/>
                             <constraint firstItem="ZVp-Zo-Njq" firstAttribute="width" secondItem="6vQ-ih-9tg" secondAttribute="width" multiplier="0.75" id="9XL-Po-heb"/>
@@ -639,7 +642,6 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oOI-mW-AJw"/>
-                        <color key="backgroundColor" red="0.6627038126" green="0.67676613760000004" blue="0.74523831880000002" alpha="0.39973264130000002" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="the-hn-g8D" firstAttribute="centerX" secondItem="oOI-mW-AJw" secondAttribute="centerX" id="6K8-JJ-eFY"/>
                             <constraint firstItem="the-hn-g8D" firstAttribute="centerY" secondItem="oOI-mW-AJw" secondAttribute="centerY" id="HGf-S9-PvM"/>
@@ -655,6 +657,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yns-UI-2tq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2066.666666666667" y="-690.40178571428567"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="KGh-Ka-4aq">
+            <objects>
+                <viewController id="ah2-Zj-RhX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VnR-Di-ZqH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nNB-Lo-Eb9">
+                                <rect key="frame" x="51.666666666666657" y="108" width="310.66666666666674" height="32"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <segments>
+                                    <segment title="Day"/>
+                                    <segment title="Week"/>
+                                    <segment title="Month"/>
+                                    <segment title="Year"/>
+                                </segments>
+                            </segmentedControl>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="izF-Fb-Gzf">
+                                <rect key="frame" x="124" y="749.66666666666663" width="166" height="38.333333333333371"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Mindfullness Time:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lcu-62-PDL">
+                                        <rect key="frame" x="0.0" y="0.0" width="166" height="18"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5QL-1k-xqj">
+                                        <rect key="frame" x="0.0" y="18" width="166" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aL2-ZE-flA">
+                                <rect key="frame" x="51.666666666666657" y="149" width="310.66666666666674" height="590.66666666666663"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wEQ-op-PxU"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                        <constraints>
+                            <constraint firstItem="nNB-Lo-Eb9" firstAttribute="centerX" secondItem="VnR-Di-ZqH" secondAttribute="centerX" id="Ahy-eQ-Ezr"/>
+                            <constraint firstItem="izF-Fb-Gzf" firstAttribute="top" secondItem="aL2-ZE-flA" secondAttribute="bottom" constant="10" id="Cac-Uy-i06"/>
+                            <constraint firstItem="nNB-Lo-Eb9" firstAttribute="top" secondItem="wEQ-op-PxU" secondAttribute="top" constant="20" id="DcV-pL-GMY"/>
+                            <constraint firstItem="nNB-Lo-Eb9" firstAttribute="width" secondItem="VnR-Di-ZqH" secondAttribute="width" multiplier="0.75" id="Hes-RL-J4Q"/>
+                            <constraint firstItem="aL2-ZE-flA" firstAttribute="centerX" secondItem="VnR-Di-ZqH" secondAttribute="centerX" id="Uec-R6-5l7"/>
+                            <constraint firstItem="aL2-ZE-flA" firstAttribute="top" secondItem="nNB-Lo-Eb9" secondAttribute="bottom" constant="10" id="VAA-hx-hTL"/>
+                            <constraint firstItem="wEQ-op-PxU" firstAttribute="bottom" secondItem="izF-Fb-Gzf" secondAttribute="bottom" constant="25" id="dUb-zs-Qe0"/>
+                            <constraint firstItem="izF-Fb-Gzf" firstAttribute="centerX" secondItem="VnR-Di-ZqH" secondAttribute="centerX" id="mQU-Pg-NIX"/>
+                            <constraint firstItem="aL2-ZE-flA" firstAttribute="width" secondItem="VnR-Di-ZqH" secondAttribute="width" multiplier="0.75" id="sYw-oP-1jP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="SIw-39-hPk"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3E6-DI-FSj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3043.4782608695655" y="-981.69642857142856"/>
         </scene>
         <!--Sign In VC-->
         <scene sceneID="eoM-ww-jw6">
@@ -977,21 +1039,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="person.crop.rectangle.fill" catalog="system" width="128" height="93"/>
-        <systemColor name="darkTextColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="darkTextColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="darkTextColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="darkTextColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="darkTextColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="stars" width="2725" height="4096"/>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -1003,6 +1051,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

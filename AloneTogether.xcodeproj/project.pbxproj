@@ -17,6 +17,7 @@
 		4DF68A2E2561EA1700123B36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DF68A2C2561EA1700123B36 /* LaunchScreen.storyboard */; };
 		4DF68A392561EA1800123B36 /* AloneTogetherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF68A382561EA1800123B36 /* AloneTogetherTests.swift */; };
 		4DF68A442561EA1800123B36 /* AloneTogetherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF68A432561EA1800123B36 /* AloneTogetherUITests.swift */; };
+		512C36922579D1E900DB2811 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512C36912579D1E900DB2811 /* extensions.swift */; };
 		51673101256884950091CA0A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51673100256884950091CA0A /* SignInViewController.swift */; };
 		517BCC6C25685F8B00971283 /* Main_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517BCC6B25685F8B00971283 /* Main_ViewController.swift */; };
 		517BCC6E2568614300971283 /* MindPopup_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517BCC6D2568614300971283 /* MindPopup_ViewController.swift */; };
@@ -65,6 +66,7 @@
 		4DF68A3F2561EA1800123B36 /* AloneTogetherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AloneTogetherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF68A432561EA1800123B36 /* AloneTogetherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AloneTogetherUITests.swift; sourceTree = "<group>"; };
 		4DF68A452561EA1800123B36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		512C36912579D1E900DB2811 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		51673100256884950091CA0A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		517BCC6B25685F8B00971283 /* Main_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main_ViewController.swift; sourceTree = "<group>"; };
 		517BCC6D2568614300971283 /* MindPopup_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindPopup_ViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 		51B0D0AE25746A32005DFCB4 /* M */ = {
 			isa = PBXGroup;
 			children = (
+				512C36912579D1E900DB2811 /* extensions.swift */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				4DF68A212561EA1000123B36 /* SceneDelegate.swift in Sources */,
 				51B0D0A925746A0B005DFCB4 /* GuestUserViewController.swift in Sources */,
 				51B0D0B825747CC6005DFCB4 /* SignIn_updatedViewController.swift in Sources */,
+				512C36922579D1E900DB2811 /* extensions.swift in Sources */,
 				517BCC702568615100971283 /* BodyPopup_ViewController.swift in Sources */,
 				51673101256884950091CA0A /* SignInViewController.swift in Sources */,
 				4DF68A292561EA1000123B36 /* AloneTogether.xcdatamodeld in Sources */,

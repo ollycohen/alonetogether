@@ -18,22 +18,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alone Together" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXA-SS-1Co">
-                                <rect key="frame" x="96.5" y="315.5" width="221" height="41"/>
+                                <rect key="frame" x="96.5" y="427.5" width="221" height="41"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="systemPurpleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Yc5-PR-1d6">
-                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
-                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="oXA-SS-1Co" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" multiplier="0.75" id="GOi-hc-llI"/>
-                            <constraint firstItem="oXA-SS-1Co" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Qlj-Zp-z0f"/>
-                            <constraint firstItem="Yc5-PR-1d6" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="b7s-Zn-lzJ"/>
-                            <constraint firstItem="Yc5-PR-1d6" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="dv8-e4-Ru0"/>
+                            <constraint firstItem="oXA-SS-1Co" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Hc9-Ca-92I"/>
+                            <constraint firstItem="oXA-SS-1Co" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="aXk-1u-h0E"/>
                         </constraints>
                     </view>
                 </viewController>
