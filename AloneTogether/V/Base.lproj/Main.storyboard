@@ -349,13 +349,19 @@
                                     <segue destination="QRW-Ot-a3j" kind="presentation" id="s61-Z5-W3T"/>
                                 </connections>
                             </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satelliteFlyover" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P7A-1K-KQa">
+                                <rect key="frame" x="20" y="238" width="374" height="455"/>
+                            </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uoP-Mr-aZB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="J4M-gh-ziI" firstAttribute="top" secondItem="J1z-oo-z9l" secondAttribute="bottom" id="1aP-qh-6nm"/>
                             <constraint firstItem="ZDU-my-748" firstAttribute="leading" secondItem="uoP-Mr-aZB" secondAttribute="leading" id="5aZ-rO-SxL"/>
+                            <constraint firstItem="uoP-Mr-aZB" firstAttribute="trailing" secondItem="P7A-1K-KQa" secondAttribute="trailing" constant="20" id="73x-VP-EFx"/>
+                            <constraint firstItem="P7A-1K-KQa" firstAttribute="leading" secondItem="uoP-Mr-aZB" secondAttribute="leading" constant="20" id="8hS-Wq-QtY"/>
                             <constraint firstAttribute="bottom" secondItem="ZDU-my-748" secondAttribute="bottom" id="K5F-Ir-ikT"/>
+                            <constraint firstItem="P7A-1K-KQa" firstAttribute="top" secondItem="J4M-gh-ziI" secondAttribute="bottom" constant="50" id="O9n-RQ-Hhc"/>
                             <constraint firstItem="J1z-oo-z9l" firstAttribute="leading" secondItem="uoP-Mr-aZB" secondAttribute="leading" id="PWw-WZ-emR"/>
                             <constraint firstItem="ZDU-my-748" firstAttribute="top" secondItem="uoP-Mr-aZB" secondAttribute="top" id="Rdp-k3-nhI"/>
                             <constraint firstItem="uoP-Mr-aZB" firstAttribute="trailing" secondItem="FCj-Jx-THU" secondAttribute="trailing" id="S2p-17-EoH"/>
@@ -364,6 +370,7 @@
                             <constraint firstItem="FCj-Jx-THU" firstAttribute="leading" secondItem="uoP-Mr-aZB" secondAttribute="leading" id="lWp-df-Gbk"/>
                             <constraint firstItem="J4M-gh-ziI" firstAttribute="trailing" secondItem="uoP-Mr-aZB" secondAttribute="trailing" id="qXH-4e-dYi"/>
                             <constraint firstItem="uoP-Mr-aZB" firstAttribute="bottom" secondItem="FCj-Jx-THU" secondAttribute="bottom" id="rJ2-5g-ngH"/>
+                            <constraint firstItem="FCj-Jx-THU" firstAttribute="top" secondItem="P7A-1K-KQa" secondAttribute="bottom" constant="50" id="ung-QL-2eD"/>
                             <constraint firstItem="J4M-gh-ziI" firstAttribute="leading" secondItem="uoP-Mr-aZB" secondAttribute="leading" id="vBH-yN-oRw"/>
                             <constraint firstItem="uoP-Mr-aZB" firstAttribute="trailing" secondItem="ZDU-my-748" secondAttribute="trailing" id="vhQ-d5-Tmi"/>
                         </constraints>
