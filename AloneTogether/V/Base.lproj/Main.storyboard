@@ -143,7 +143,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="747" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wp5-sr-1xw">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" textContentType="email"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="first name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V1v-zg-ieJ">
                                                 <rect key="frame" x="0.0" y="67" width="374" height="34"/>
@@ -164,7 +164,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="748" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="phone number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rj8-iO-LB0">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" textContentType="tel"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jAD-KD-55y">
                                                 <rect key="frame" x="0.0" y="67" width="374" height="34"/>
@@ -189,7 +189,7 @@
                                 </constraints>
                                 <state key="normal" title="Go"/>
                                 <connections>
-                                    <segue destination="VfE-Kb-XuF" kind="show" id="MKG-HF-ulI"/>
+                                    <action selector="goPressed:" destination="ik5-yi-8SL" eventType="touchUpInside" id="ht9-yx-FdK"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -209,6 +209,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UV1-ng-PK4"/>
+                    <connections>
+                        <outlet property="email" destination="Wp5-sr-1xw" id="z7i-a1-7Vy"/>
+                        <outlet property="fName" destination="V1v-zg-ieJ" id="U84-R1-oxz"/>
+                        <outlet property="lName" destination="qx8-4K-3dk" id="ceG-q2-d2E"/>
+                        <outlet property="phone" destination="Rj8-iO-LB0" id="oSu-df-yrT"/>
+                        <outlet property="pw_0" destination="jAD-KD-55y" id="6kG-ls-gEq"/>
+                        <segue destination="VfE-Kb-XuF" kind="show" identifier="RegtoMain" id="wmw-nW-xTN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wF3-IM-AI9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -240,7 +248,7 @@
                                 <rect key="frame" x="192" y="475" width="30" height="30"/>
                                 <state key="normal" title="Go"/>
                                 <connections>
-                                    <segue destination="VfE-Kb-XuF" kind="show" id="MYg-Cb-QUQ"/>
+                                    <action selector="goPressed:" destination="ZJn-Je-Otm" eventType="touchUpInside" id="agf-g8-XtC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -258,6 +266,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3qI-cC-qR5"/>
+                    <connections>
+                        <outlet property="gueset_name" destination="Hxm-n9-PEb" id="Jky-Up-auE"/>
+                        <segue destination="VfE-Kb-XuF" kind="show" identifier="GuesttoMain" id="mPK-Kr-NOr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rhR-OL-Ht0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1001,7 +1013,7 @@
                                 <rect key="frame" x="192" y="517" width="30" height="30"/>
                                 <state key="normal" title="Go"/>
                                 <connections>
-                                    <segue destination="VfE-Kb-XuF" kind="show" id="sWH-yN-koP"/>
+                                    <action selector="go_pressed:" destination="9ss-7I-gcl" eventType="touchUpInside" id="PZP-hg-Irz"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="pdi-b1-KAb">
@@ -1035,6 +1047,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uDN-mx-LFa"/>
+                    <connections>
+                        <outlet property="email" destination="4S4-PA-sk5" id="vcd-Hh-fIg"/>
+                        <outlet property="go_btn" destination="MxI-6E-wPF" id="k7j-GA-1Dq"/>
+                        <outlet property="pw" destination="5Zy-2m-JtH" id="4lI-c7-JWw"/>
+                        <segue destination="VfE-Kb-XuF" kind="show" identifier="upSigntoMain" id="MAv-1K-erj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yrf-ZZ-iMB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1042,7 +1060,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="sWH-yN-koP"/>
+        <segue reference="mPK-Kr-NOr"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="person.crop.rectangle.fill" catalog="system" width="128" height="93"/>

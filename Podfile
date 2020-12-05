@@ -7,6 +7,7 @@ target 'AloneTogether' do
 
   # Pods for AloneTogether
   pod 'Firebase/Database'
+  pod 'Firebase/Auth'
   target 'AloneTogetherTests' do
     inherit! :search_paths
     # Pods for testing
