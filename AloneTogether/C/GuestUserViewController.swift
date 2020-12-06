@@ -15,7 +15,7 @@ class GuestUserViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var gueset_name: UITextField!
     var city: String = ""
     var country : String = ""
-
+    var guest_coord = CLLocationCoordinate2D()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,7 +51,7 @@ class GuestUserViewController: UIViewController, CLLocationManagerDelegate {
                  var ref: DatabaseReference!
 
                   ref = Database.database().reference()
-                 ref.child("guest_users").child(name).setValue(["name": name, "city":self.city,"country":self.country,"uid":nil,"guest":true])
+        ref.child("guest_users").child(name).setValue(["name": name, "city":self.city,"country":self.country,"uid":nil,"guest":true,"lat": guest_coord.latitude,"long": guest_coord.longitude])
                  
                  ///PERFRORM SEGUE
                  self.performSegue(withIdentifier: "GuesttoMain", sender: self)
@@ -74,6 +74,7 @@ class GuestUserViewController: UIViewController, CLLocationManagerDelegate {
         destination.name = self.gueset_name.text ?? "guest"
         destination.city = self.city
         destination.country = self.country
+        destination.user_coord = self.guest_coord
         //destination.userId = nil
         
         destination.guest = true
@@ -83,6 +84,7 @@ class GuestUserViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         var location = locations[0];
         //print(location);
+        guest_coord=location.coordinate
         let geoCoder = CLGeocoder()
         geoCoder.reverseGeocodeLocation(location, completionHandler:
         {

@@ -17,7 +17,7 @@ class RegisterUserViewController: UIViewController,CLLocationManagerDelegate {
     var city: String = ""
     var country : String = ""
     var  userId: Any = ""
-    
+    var user_coord = CLLocationCoordinate2D()
     @IBOutlet weak var email: UITextField!
     
     @IBOutlet weak var fName: UITextField!
@@ -62,7 +62,7 @@ class RegisterUserViewController: UIViewController,CLLocationManagerDelegate {
                 var ref: DatabaseReference!
 
                  ref = Database.database().reference()
-                ref.child("users").child((result?.user.uid)! as String).setValue(["email":em, "firstName": fN, "lastName":lN,"phone":ph,"city":self.city,"country":self.country,"uid":result?.user.uid as Any,"TotalMindfulTime":0,"TotalGives":0,"TotalRecieves":0,"guest":false])
+                ref.child("users").child((result?.user.uid)! as String).setValue(["email":em, "firstName": fN, "lastName":lN,"phone":ph,"city":self.city,"country":self.country,"uid":result?.user.uid as Any,"TotalMindfulTime":0,"TotalGives":0,"TotalRecieves":0,"guest":false,"lat":user_coord.latitude,"long":user_coord.longitude])
                 
                 ///PERFRORM SEGUE
                 self.performSegue(withIdentifier: "RegtoMain", sender: self)
@@ -83,12 +83,14 @@ class RegisterUserViewController: UIViewController,CLLocationManagerDelegate {
         destination.country = self.country
         destination.userId = self.userId
         destination.guest = false
+        destination.user_coord = self.user_coord
     
     }
     
     //ACCESS LOCATION DATA
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         var location = locations[0];
+        user_coord=location.coordinate
         //print(location);
         let geoCoder = CLGeocoder()
         geoCoder.reverseGeocodeLocation(location, completionHandler:

@@ -16,11 +16,11 @@ class SignIn_updatedViewController: UIViewController, CLLocationManagerDelegate 
     
     var city: String = ""
     var country : String = ""
-    var  userId: Any = ""
+    var userId: Any = ""
     var name : String = ""
     var loginSuccess : Bool = false
     var guest: Bool = false
-    
+    var user_coord = CLLocationCoordinate2D(); //HEY OLLY OVER HERE -nads
     
     @IBOutlet weak var email: UITextField!
     
@@ -80,7 +80,8 @@ class SignIn_updatedViewController: UIViewController, CLLocationManagerDelegate 
                     //update registered user loc on sign-in
                     ref.child("country").setValue(self.country)
                     ref.child("city").setValue(self.city)
-                    
+                    ref.child("lat").setValue(self.user_coord.latitude)
+                    ref.child("long").setValue(self.user_coord.longitude)
                     self.performSegue(withIdentifier: "upSigntoMain", sender: self)
                     
                     
@@ -117,11 +118,13 @@ class SignIn_updatedViewController: UIViewController, CLLocationManagerDelegate 
         destination.country = self.country
         destination.userId = self.userId
         destination.guest = false
+        destination.user_coord = self.user_coord
     
     }
     //ACCESS LOCATION DATA
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         var location = locations[0];
+         user_coord = location.coordinate
         //print(location);
         let geoCoder = CLGeocoder()
         geoCoder.reverseGeocodeLocation(location, completionHandler:

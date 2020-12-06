@@ -25,6 +25,7 @@ class Main_ViewController: UIViewController {
     var state: String="";
     var country : String="";
     var userId: Any = "";
+    var user_coord = CLLocationCoordinate2D(); //HEY OLLY OVER HERE!!!
     var guest : Bool = false;
     var give_recieve_pressed : Bool = false;
     
