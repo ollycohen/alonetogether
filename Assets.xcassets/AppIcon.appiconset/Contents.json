@@ -1,11 +1,13 @@
 {
   "images" : [
     {
+      "filename" : "AT-3.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
+      "filename" : "AT-2.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
@@ -16,6 +18,7 @@
       "size" : "29x29"
     },
     {
+      "filename" : "AT-1.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
@@ -86,6 +89,7 @@
       "size" : "83.5x83.5"
     },
     {
+      "filename" : "AT.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
