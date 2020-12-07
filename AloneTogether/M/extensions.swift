@@ -21,7 +21,7 @@ extension UIView {
         layer.masksToBounds = false
         layer.shadowColor = color.cgColor
         layer.shadowRadius = 0
-        layer.shadowOpacity = 0.8
+        layer.shadowOpacity = 0.9
         layer.shadowOffset = .zero
 
         let glowAnimation = CABasicAnimation(keyPath: "shadowRadius")

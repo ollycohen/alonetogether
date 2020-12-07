@@ -9,6 +9,7 @@
 import UIKit
 
 class BodyPopup_ViewController: UIViewController {
+    @IBOutlet weak var mainView: UIView!
     @IBAction func selectButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
         //perform segue
@@ -17,7 +18,14 @@ class BodyPopup_ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //https://www.hackingwithswift.com/example-code/calayer/how-to-make-a-uiview-fade-out
+        let gradientMaskLayer = CAGradientLayer()
+        gradientMaskLayer.frame = mainView.bounds
+        gradientMaskLayer.frame = mainView.bounds
+        gradientMaskLayer.colors = [UIColor.clear.cgColor, UIColor.white.cgColor, UIColor.white.cgColor, UIColor.clear.cgColor]
+        gradientMaskLayer.locations = [0.01, 0.05, 0.95, 0.99]
+        mainView.layer.mask = gradientMaskLayer
+        view.addSubview(mainView)
         // Do any additional setup after loading the view.
     }
     
