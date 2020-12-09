@@ -118,7 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1046.376811594203" y="109.82142857142857"/>
+            <point key="canvasLocation" x="1097" y="110"/>
         </scene>
         <!--Register User View Controller-->
         <scene sceneID="xkG-2v-Eg2">
@@ -336,25 +336,31 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="FCj-Jx-THU" userLabel="Bottom Stack">
                                 <rect key="frame" x="0.0" y="632" width="414" height="181"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z3k-8k-xwJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z3k-8k-xwJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
                                         <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="43"/>
                                         <color key="textColor" systemColor="systemTealColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minValue="0.0" maxValue="60" translatesAutoresizingMaskIntoConstraints="NO" id="6eD-J2-zPC">
-                                        <rect key="frame" x="-2" y="60" width="418" height="61.5"/>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yRg-zz-t8c">
+                                        <rect key="frame" x="0.0" y="45" width="414" height="45.5"/>
+                                    </progressView>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="60" translatesAutoresizingMaskIntoConstraints="NO" id="6eD-J2-zPC">
+                                        <rect key="frame" x="-2" y="90.5" width="418" height="46"/>
                                         <color key="tintColor" systemColor="systemTealColor"/>
                                         <color key="thumbTintColor" systemColor="systemTealColor"/>
+                                        <connections>
+                                            <action selector="timerSetSlider:" destination="VfE-Kb-XuF" eventType="valueChanged" id="SQa-pA-q6s"/>
+                                        </connections>
                                     </slider>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="FT4-8v-FnO">
-                                        <rect key="frame" x="0.0" y="120.5" width="414" height="60.5"/>
+                                        <rect key="frame" x="0.0" y="135.5" width="414" height="45.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AOg-n1-Whi">
-                                                <rect key="frame" x="0.0" y="0.0" width="138" height="60.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="138" height="45.5"/>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ltw-Jj-OUo" userLabel="give_btn">
-                                                <rect key="frame" x="138" y="0.0" width="138" height="60.5"/>
+                                                <rect key="frame" x="138" y="0.0" width="138" height="45.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <state key="normal" title="Start">
                                                     <color key="titleColor" systemColor="systemTealColor"/>
@@ -365,7 +371,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQa-vS-IsE">
-                                                <rect key="frame" x="276" y="0.0" width="138" height="60.5"/>
+                                                <rect key="frame" x="276" y="0.0" width="138" height="45.5"/>
                                                 <color key="tintColor" systemColor="systemTealColor"/>
                                                 <state key="normal">
                                                     <color key="titleColor" systemColor="systemTealColor"/>
@@ -431,6 +437,9 @@
                         <outlet property="causebtn" destination="J4M-gh-ziI" id="kI6-us-NSy"/>
                         <outlet property="givebtn" destination="Ltw-Jj-OUo" id="dE3-Uc-h6T"/>
                         <outlet property="mindbtn" destination="ZGO-ua-a2A" id="Ogj-GI-Q3u"/>
+                        <outlet property="progressBar" destination="yRg-zz-t8c" id="brb-Mz-trA"/>
+                        <outlet property="timerLabel" destination="z3k-8k-xwJ" id="pRx-wC-Xix"/>
+                        <outlet property="timerSlider" destination="6eD-J2-zPC" id="1CB-3h-Hsm"/>
                         <outlet property="welcomeLabel" destination="TA7-UC-q4T" id="Shb-wn-nA8"/>
                     </connections>
                 </viewController>

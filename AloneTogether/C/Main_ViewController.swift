@@ -16,6 +16,7 @@ class Main_ViewController: UIViewController {
     @IBOutlet weak var givebtn: UIButton! //GIVE BTN IS START BTN
     @IBOutlet weak var welcomeLabel: UILabel!
     
+    var progress = Progress()
     
     //global variables_start
 
@@ -29,6 +30,9 @@ class Main_ViewController: UIViewController {
     var guest : Bool = false;
     var give_recieve_pressed : Bool = false;
     //var userFirstName:String = ""
+    @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var timerSlider: UISlider!
+    @IBOutlet weak var progressBar: UIProgressView!
     
     struct connection{
         var other_city : String = ""
@@ -87,6 +91,10 @@ class Main_ViewController: UIViewController {
     
         //welcomeLabel.text = "Welcome, \(userFirstName)"
         
+    }
+    
+    @IBAction func timerSetSlider(_ sender: Any) {
+        timerLabel.text = "\(Int(timerSlider.value)):00"
     }
     
     //GIVE PRESSED
@@ -150,6 +158,23 @@ class Main_ViewController: UIViewController {
             //if the give/ recieve are registered users, update their stats
             return
             
+        }
+        timerSlider.isHidden = true
+        givebtn.isHidden = true
+        progressBar.isHidden = false
+        progress = Progress(totalUnitCount: Int64(timerSlider.value * 60))
+        
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true){ (timer) in
+            guard self.progress.isFinished == false else {
+                timer.invalidate()
+                print("finished timer countdown")
+                return
+            }
+            self.progress.completedUnitCount += 1
+            let progressFloat = Float(self.progress.fractionCompleted)
+            self.progressBar.setProgress(progressFloat, animated: true)
+            
+            // self.progressView.progress = progressFloat
         }
     }
     
