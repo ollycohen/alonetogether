@@ -112,6 +112,9 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Welcome" id="P3g-GC-iqm"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="VfE-Kb-XuF" kind="show" identifier="welcomeToMain" id="EXa-yw-1ZB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -1106,7 +1109,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mPK-Kr-NOr"/>
+        <segue reference="EXa-yw-1ZB"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="person.crop.rectangle.fill" catalog="system" width="128" height="93"/>

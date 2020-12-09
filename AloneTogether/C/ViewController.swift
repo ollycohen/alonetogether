@@ -28,6 +28,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         locationManager.startUpdatingLocation();
         // Do any additional setup after loading the view.
         // First Commit - Benjamin
+        
+        let defaults = UserDefaults.standard
+        let loggedIn = defaults.bool(forKey: "loggedIn")
+        checkForLogin(logged: loggedIn)
     }
     //START PRESSED
     @IBAction func startPressed(_ sender: Any) {
@@ -86,11 +90,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         else {
             return
         }
-        destination.name = name.text ?? "nadia"
+        //destination.name = name.text ?? "nadia"
         destination.city = self.city
         destination.country = self.country
     
     }
+    
+    func checkForLogin(logged:Bool){
+        if(logged){
+                print("Previous user login detected. User automatically segued to new view.")
+                performSegue(withIdentifier: "welcomeToMain", sender: nil)
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
           super.viewWillAppear(animated)
           hideNavigationBar(animated: animated)

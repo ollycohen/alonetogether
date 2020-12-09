@@ -65,6 +65,11 @@ class SignIn_updatedViewController: UIViewController, CLLocationManagerDelegate 
                 
                 print("user logged in")
                 
+                
+                let defaults = UserDefaults.standard
+                defaults.set(true, forKey: "loggedIn")
+                defaults.set(result?.user.uid ?? "Error. No user ID found.", forKey: "userID")
+
                
                 self.userId = result?.user.uid
                 print(self.userId)
@@ -74,7 +79,7 @@ class SignIn_updatedViewController: UIViewController, CLLocationManagerDelegate 
                 ref.observe(.value, with: {
                     snapshot in
                        
-                        print(snapshot.childSnapshot(forPath: "firstName").value as Any)
+                    print(snapshot.childSnapshot(forPath: "firstName").value as Any)
                     self.name = snapshot.childSnapshot(forPath: "firstName").value as Any as! String
                     
                     //update registered user loc on sign-in

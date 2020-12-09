@@ -64,6 +64,10 @@ class RegisterUserViewController: UIViewController,CLLocationManagerDelegate {
                  ref = Database.database().reference()
                 ref.child("users").child((result?.user.uid)! as String).setValue(["email":em, "firstName": fN, "lastName":lN,"phone":ph,"city":self.city,"country":self.country,"uid":result?.user.uid as Any,"TotalMindfulTime":0,"TotalGives":0,"TotalRecieves":0,"guest":false,"lat":user_coord.latitude,"long":user_coord.longitude])
                 
+                let defaults = UserDefaults.standard
+                defaults.set(true, forKey: "loggedIn")
+                defaults.set(result?.user.uid ?? "Error. No user ID found.", forKey: "userID")
+                
                 ///PERFRORM SEGUE
                 self.performSegue(withIdentifier: "RegtoMain", sender: self)
                 
