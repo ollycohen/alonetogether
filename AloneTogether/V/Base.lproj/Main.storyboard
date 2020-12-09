@@ -431,6 +431,7 @@
                         <outlet property="causebtn" destination="J4M-gh-ziI" id="kI6-us-NSy"/>
                         <outlet property="givebtn" destination="Ltw-Jj-OUo" id="dE3-Uc-h6T"/>
                         <outlet property="mindbtn" destination="ZGO-ua-a2A" id="Ogj-GI-Q3u"/>
+                        <outlet property="welcomeLabel" destination="TA7-UC-q4T" id="Shb-wn-nA8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KmP-X7-aAZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

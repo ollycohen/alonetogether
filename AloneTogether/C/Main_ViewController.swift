@@ -14,6 +14,7 @@ class Main_ViewController: UIViewController {
     @IBOutlet weak var mindbtn: UIButton!
     @IBOutlet weak var causebtn: UIButton!
     @IBOutlet weak var givebtn: UIButton! //GIVE BTN IS START BTN
+    @IBOutlet weak var welcomeLabel: UILabel!
     
     
     //global variables_start
@@ -27,6 +28,7 @@ class Main_ViewController: UIViewController {
     var user_coord = CLLocationCoordinate2D(); //HEY OLLY OVER HERE!!!
     var guest : Bool = false;
     var give_recieve_pressed : Bool = false;
+    //var userFirstName:String = ""
     
     struct connection{
         var other_city : String = ""
@@ -55,6 +57,36 @@ class Main_ViewController: UIViewController {
         causebtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
         givebtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
         //receivebtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
+        
+        // Set "Title" at the top of the view to either say "Welcome, {Name}" or "Welcome, Guest".
+        
+        let defaults = UserDefaults.standard
+        let loggedIn = defaults.bool(forKey: "loggedIn")
+        let userID = defaults.string(forKey: "userID")
+        
+        
+        
+        if (loggedIn){
+            let ref = Database.database().reference()
+            ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+              // Get user value
+                    
+            let value = snapshot.value as? NSDictionary
+            self.welcomeLabel.text = "Welcome, \(value?["firstName"] as? String ?? "")"
+            
+                
+              // ...
+              }) { (error) in
+                print(error.localizedDescription)
+            }
+
+        }
+        else{
+            self.welcomeLabel.text = "Welcome, Guest"
+        }
+    
+        //welcomeLabel.text = "Welcome, \(userFirstName)"
+        
     }
     
     //GIVE PRESSED
