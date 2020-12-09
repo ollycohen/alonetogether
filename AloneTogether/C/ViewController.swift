@@ -18,6 +18,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     @IBOutlet weak var name: UITextField! //UI text field from storyboard
     var city: String = ""
     var country : String = ""
+    var user_coord = CLLocationCoordinate2D();
+    var loggedIn:Bool = false
     //global variables_end
     
     //VIEW DID LOAD
@@ -30,8 +32,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         // First Commit - Benjamin
         
         let defaults = UserDefaults.standard
-        let loggedIn = defaults.bool(forKey: "loggedIn")
-        checkForLogin(logged: loggedIn)
+        loggedIn = defaults.bool(forKey: "loggedIn")
+        
     }
     //START PRESSED
     @IBAction func startPressed(_ sender: Any) {
@@ -47,7 +49,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     //ACCESS LOCATION DATA
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         var location = locations[0];
-        //print(location);
+        self.user_coord = location.coordinate
+        print("Update location.coordinate in view controller is", user_coord)
         let geoCoder = CLGeocoder()
         geoCoder.reverseGeocodeLocation(location, completionHandler:
         {
@@ -81,7 +84,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
                         }
             
                 })
-        
+        checkForLogin()
     }
     
     //SEND USER DATA VIA SEGUE
@@ -90,16 +93,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         else {
             return
         }
-        //destination.name = name.text ?? "nadia"
+//        if let theName = name.text {
+//            destination.name = theName
+//        } else {
+//            destination.name = "Human"
+//        }
+        destination.name = "Human"
         destination.city = self.city
         destination.country = self.country
-    
+        destination.user_coord = user_coord
+        print("My ViewController Coordinates are,", user_coord)
     }
     
-    func checkForLogin(logged:Bool){
-        if(logged){
+    func checkForLogin(){
+        if(loggedIn){
                 print("Previous user login detected. User automatically segued to new view.")
                 performSegue(withIdentifier: "welcomeToMain", sender: nil)
+                loggedIn = false
         }
     }
     
