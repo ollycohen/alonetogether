@@ -11,7 +11,7 @@ import FirebaseDatabase
 import MapKit
 class Main_ViewController: UIViewController {
     @IBOutlet weak var bodybtn: UIButton!
-    @IBOutlet weak var mindbtn: UIButton!
+    //@IBOutlet weak var mindbtn: UIButton!
     @IBOutlet weak var causebtn: UIButton!
     @IBOutlet weak var givebtn: UIButton! //GIVE BTN IS START BTN
     @IBOutlet weak var welcomeLabel: UILabel!
@@ -49,7 +49,7 @@ class Main_ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        mindbtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
+//        mindbtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
         bodybtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
         causebtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
         givebtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
