@@ -19,7 +19,7 @@ class Main_ViewController: UIViewController {
     var progress = Progress()
     
     //global variables_start
-
+    
     var name: String="";
     //var onlineID: String="";
     var city : String="";
@@ -44,6 +44,7 @@ class Main_ViewController: UIViewController {
         var other_uid : Any = ""
         var request_id : String = ""
     }
+    
     var other_person = connection() //person connected with in give or recieve
     
     

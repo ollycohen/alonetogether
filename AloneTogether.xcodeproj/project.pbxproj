@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2514909C2581B202008662D5 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2514909B2581B202008662D5 /* StatsViewController.swift */; };
+		2514909D2581B202008662D5 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2514909B2581B202008662D5 /* StatsViewController.swift */; };
+		2514909E2581B202008662D5 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2514909B2581B202008662D5 /* StatsViewController.swift */; };
 		320FC2076F6E8EFF7E39F37F /* Pods_AloneTogether_AloneTogetherUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC0FE47F79E635B97D92B45 /* Pods_AloneTogether_AloneTogetherUITests.framework */; };
 		4DF68A1F2561EA1000123B36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF68A1E2561EA1000123B36 /* AppDelegate.swift */; };
 		4DF68A212561EA1000123B36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF68A202561EA1000123B36 /* SceneDelegate.swift */; };
@@ -49,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2514909B2581B202008662D5 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		499CB112E853ED9D33F2676D /* Pods-AloneTogetherTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AloneTogetherTests.release.xcconfig"; path = "Target Support Files/Pods-AloneTogetherTests/Pods-AloneTogetherTests.release.xcconfig"; sourceTree = "<group>"; };
 		4CC0FE47F79E635B97D92B45 /* Pods_AloneTogether_AloneTogetherUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AloneTogether_AloneTogetherUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF68A1B2561EA1000123B36 /* AloneTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AloneTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,6 +215,7 @@
 				517BCC6B25685F8B00971283 /* Main_ViewController.swift */,
 				51B0D0A0257469E6005DFCB4 /* RegisterUserViewController.swift */,
 				51B0D0A825746A0B005DFCB4 /* GuestUserViewController.swift */,
+				2514909B2581B202008662D5 /* StatsViewController.swift */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -469,6 +474,7 @@
 				4DF68A232561EA1000123B36 /* ViewController.swift in Sources */,
 				517BCC722568666100971283 /* HashtagsViewController.swift in Sources */,
 				4DF68A1F2561EA1000123B36 /* AppDelegate.swift in Sources */,
+				2514909C2581B202008662D5 /* StatsViewController.swift in Sources */,
 				4DF68A212561EA1000123B36 /* SceneDelegate.swift in Sources */,
 				51B0D0A925746A0B005DFCB4 /* GuestUserViewController.swift in Sources */,
 				51B0D0B825747CC6005DFCB4 /* SignIn_updatedViewController.swift in Sources */,
@@ -485,6 +491,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2514909D2581B202008662D5 /* StatsViewController.swift in Sources */,
 				4DF68A392561EA1800123B36 /* AloneTogetherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,6 +500,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2514909E2581B202008662D5 /* StatsViewController.swift in Sources */,
 				4DF68A442561EA1800123B36 /* AloneTogetherUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

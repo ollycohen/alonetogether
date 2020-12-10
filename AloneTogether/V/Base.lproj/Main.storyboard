@@ -623,6 +623,7 @@
                     </view>
                     <connections>
                         <outlet property="mainView" destination="ZVp-Zo-Njq" id="ZxH-0n-Wgy"/>
+                        <outlet property="tableView" destination="Wo3-CC-1B3" id="6GA-25-jGF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vME-s2-RGX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -719,10 +720,10 @@
             </objects>
             <point key="canvasLocation" x="2066.666666666667" y="-690.40178571428567"/>
         </scene>
-        <!--View Controller-->
+        <!--Stats View Controller-->
         <scene sceneID="KGh-Ka-4aq">
             <objects>
-                <viewController id="ah2-Zj-RhX" sceneMemberID="viewController">
+                <viewController id="ah2-Zj-RhX" customClass="StatsViewController" customModule="AloneTogether" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VnR-Di-ZqH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -791,6 +792,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SIw-39-hPk"/>
+                    <connections>
+                        <outlet property="mindfullnessTimeLabel" destination="5QL-1k-xqj" id="rsA-3t-VZf"/>
+                        <outlet property="tableView" destination="Wh2-p0-SvK" id="kH4-OG-4vq"/>
+                        <outlet property="timePeriodControl" destination="nNB-Lo-Eb9" id="OxK-YQ-rRk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3E6-DI-FSj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
