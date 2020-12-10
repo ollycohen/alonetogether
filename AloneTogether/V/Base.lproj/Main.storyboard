@@ -337,16 +337,16 @@
                                 <rect key="frame" x="0.0" y="632" width="414" height="181"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z3k-8k-xwJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                         <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="43"/>
                                         <color key="textColor" systemColor="systemTealColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yRg-zz-t8c">
-                                        <rect key="frame" x="0.0" y="45" width="414" height="45.5"/>
+                                    <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yRg-zz-t8c">
+                                        <rect key="frame" x="0.0" y="60" width="414" height="0.0"/>
                                     </progressView>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="60" translatesAutoresizingMaskIntoConstraints="NO" id="6eD-J2-zPC">
-                                        <rect key="frame" x="-2" y="90.5" width="418" height="46"/>
+                                        <rect key="frame" x="-2" y="60" width="418" height="61.5"/>
                                         <color key="tintColor" systemColor="systemTealColor"/>
                                         <color key="thumbTintColor" systemColor="systemTealColor"/>
                                         <connections>
@@ -354,13 +354,13 @@
                                         </connections>
                                     </slider>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="FT4-8v-FnO">
-                                        <rect key="frame" x="0.0" y="135.5" width="414" height="45.5"/>
+                                        <rect key="frame" x="0.0" y="120.5" width="414" height="60.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AOg-n1-Whi">
-                                                <rect key="frame" x="0.0" y="0.0" width="138" height="45.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="138" height="60.5"/>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ltw-Jj-OUo" userLabel="give_btn">
-                                                <rect key="frame" x="138" y="0.0" width="138" height="45.5"/>
+                                                <rect key="frame" x="138" y="0.0" width="138" height="60.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <state key="normal" title="Start">
                                                     <color key="titleColor" systemColor="systemTealColor"/>
@@ -371,7 +371,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQa-vS-IsE">
-                                                <rect key="frame" x="276" y="0.0" width="138" height="45.5"/>
+                                                <rect key="frame" x="276" y="0.0" width="138" height="60.5"/>
                                                 <color key="tintColor" systemColor="systemTealColor"/>
                                                 <state key="normal">
                                                     <color key="titleColor" systemColor="systemTealColor"/>

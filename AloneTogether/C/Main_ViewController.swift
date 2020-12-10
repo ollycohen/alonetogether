@@ -29,6 +29,8 @@ class Main_ViewController: UIViewController {
     var user_coord = CLLocationCoordinate2D(); //HEY OLLY OVER HERE!!!
     var guest : Bool = false;
     var give_recieve_pressed : Bool = false;
+    var secondsLeft = 0
+    var minutesLeft = 0
     //var userFirstName:String = ""
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var timerSlider: UISlider!
@@ -93,10 +95,13 @@ class Main_ViewController: UIViewController {
         
     }
     
-    @IBAction func timerSetSlider(_ sender: Any) {
+    @IBAction func timerSetSlider(_ sender: UISlider)
+    {
+        sender.setValue(sender.value.rounded(.down), animated: false)
         timerLabel.text = "\(Int(timerSlider.value)):00"
     }
     
+    //GIVE PRESSED
     //GIVE PRESSED
     @IBAction func givePressed(_ sender: Any) {
         var ref = Database.database().reference()
@@ -159,25 +164,56 @@ class Main_ViewController: UIViewController {
             return
             
         }
+        minutesLeft = Int(timerSlider.value)
+        secondsLeft = 0
+        progress = Progress(totalUnitCount: Int64(timerSlider.value * 60))
         timerSlider.isHidden = true
         givebtn.isHidden = true
         progressBar.isHidden = false
-        progress = Progress(totalUnitCount: Int64(timerSlider.value * 60))
         
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true){ (timer) in
-            guard self.progress.isFinished == false else {
-                timer.invalidate()
-                print("finished timer countdown")
-                return
-            }
-            self.progress.completedUnitCount += 1
-            let progressFloat = Float(self.progress.fractionCompleted)
-            self.progressBar.setProgress(progressFloat, animated: true)
-            
-            // self.progressView.progress = progressFloat
-        }
+        print("total unit count: \(Int64(timerSlider.value * 60))")
+        print("timerSlider.value = \(timerSlider.value)")
+        
+        runTimer()
     }
     
+    func runTimer(){
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true){ [self] (timer) in
+            
+            guard progress.isFinished == false else {
+                timer.invalidate()
+                
+                minutesLeft = Int(timerSlider.value)
+                secondsLeft = 0
+                timerSlider.isHidden = false
+                givebtn.isHidden = false
+                progressBar.isHidden = true
+                
+                return
+            }
+            
+            progress.completedUnitCount += 1
+            let progressFloat = Float(self.progress.fractionCompleted)
+            progressBar.setProgress(progressFloat, animated: true)
+            
+            if(secondsLeft == 0){
+                secondsLeft = 59
+                minutesLeft -= 1
+            }
+            else{
+                secondsLeft -= 1
+            }
+            
+            if (secondsLeft < 10){
+                timerLabel.text = "\(minutesLeft):0\(secondsLeft)"
+            }
+            else{
+                timerLabel.text = "\(minutesLeft):\(secondsLeft)"
+            }
+            
+            
+        }
+    }
     
     //RECIEVE PRESSED
 //    @IBAction func recievePressed(_ sender: Any) {
