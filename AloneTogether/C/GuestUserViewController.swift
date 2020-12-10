@@ -32,8 +32,6 @@ class GuestUserViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
-
-    
     @IBAction func goPressed(_ sender: Any) {
         add_guest()
         
@@ -49,12 +47,14 @@ class GuestUserViewController: UIViewController, CLLocationManagerDelegate {
          }
         
              
-                 print("assume guest user added")
+                 print("assume guest user added named ", name)
                  var ref: DatabaseReference!
 
                   ref = Database.database().reference()
-        ref.child("guest_users").child(name).setValue(["name": name, "city":guestHuman.city,"country":guestHuman.country,"uid":nil,"guest":true,"coordinates": guestHuman.user_coord])
+        ref.child("guest_users").child(name).setValue(["name": name, "city":guestHuman.city,"country":guestHuman.country,"uid":nil,"guest":true,"latitude": guestHuman.user_coord.latitude, "longitude": guestHuman.user_coord.longitude])
         
+        ///PERFRORM SEGUE
+        self.performSegue(withIdentifier: "GuesttoMain", sender: self)
         sendSegue = true
     }
     
@@ -107,11 +107,11 @@ class GuestUserViewController: UIViewController, CLLocationManagerDelegate {
                             //print(myCountry)
                         }
                 })
-        
-        if(sendSegue){
-            ///PERFRORM SEGUE
-            self.performSegue(withIdentifier: "GuesttoMain", sender: self)
-        }
+//
+//        if(sendSegue){
+//            ///PERFRORM SEGUE
+//            self.performSegue(withIdentifier: "GuesttoMain", sender: self)
+//        }
     }
 
 }
