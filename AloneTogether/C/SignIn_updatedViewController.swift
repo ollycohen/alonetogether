@@ -13,14 +13,8 @@ import CoreLocation
 class SignIn_updatedViewController: UIViewController, CLLocationManagerDelegate {
 
     let locationManager = CLLocationManager()
-    
-    var city: String = ""
-    var country : String = ""
-    var userId: Any = ""
-    var name : String = ""
+    var sHuman:Human = Human()
     var loginSuccess : Bool = false
-    var guest: Bool = false
-    var user_coord = CLLocationCoordinate2D(); //HEY OLLY OVER HERE -nads
     
     @IBOutlet weak var email: UITextField!
     
@@ -43,17 +37,17 @@ class SignIn_updatedViewController: UIViewController, CLLocationManagerDelegate 
     }
     
     @IBAction func go_pressed(_ sender: Any) {
-        login()
-        
+        self.loginSuccess = login()
     }
     
     func login() -> Bool {
+        var logHumanIn:Bool = false
         guard let myEmail = email.text, !myEmail.isEmpty,
               let myPw = pw.text, !myPw.isEmpty
         else{
             print("missing field")
-            loginSuccess = false
-            return loginSuccess
+            logHumanIn = false
+            return logHumanIn
         }
         
         print("OVer here B0!!")
@@ -61,7 +55,7 @@ class SignIn_updatedViewController: UIViewController, CLLocationManagerDelegate 
        
         Auth.auth().signIn(withEmail: myEmail, password: myPw,completion :{result,error in
             if error == nil{
-                self.loginSuccess = true;
+                logHumanIn = true;
                 
                 print("user logged in")
                 
@@ -70,40 +64,32 @@ class SignIn_updatedViewController: UIViewController, CLLocationManagerDelegate 
                 defaults.set(true, forKey: "loggedIn")
                 defaults.set(result?.user.uid ?? "Error. No user ID found.", forKey: "userID")
 
-               
-                self.userId = result?.user.uid
-                print(self.userId)
+                self.sHuman.userId = result?.user.uid as Any
+                print(self.sHuman.userId)
                 //var ref: DatabaseReference!
 
-                var ref = Database.database().reference(withPath: "users/"+(self.userId as! String))
+                let ref = Database.database().reference(withPath: "users/"+(self.sHuman.userId as! String))
                 ref.observe(.value, with: {
                     snapshot in
                        
                     print(snapshot.childSnapshot(forPath: "firstName").value as Any)
-                    self.name = snapshot.childSnapshot(forPath: "firstName").value as Any as! String
+                    self.sHuman.name = snapshot.childSnapshot(forPath: "firstName").value as Any as! String
                     
                     //update registered user loc on sign-in
-                    ref.child("country").setValue(self.country)
-                    ref.child("city").setValue(self.city)
-                    ref.child("lat").setValue(self.user_coord.latitude)
-                    ref.child("long").setValue(self.user_coord.longitude)
-                    self.performSegue(withIdentifier: "upSigntoMain", sender: self)
-                    
-                    
+                    ref.child("country").setValue(self.sHuman.country)
+                    ref.child("city").setValue(self.sHuman.city)
+                    ref.child("coordinates").setValue(self.sHuman.user_coord)
+                    //self.performSegue(withIdentifier: "upSigntoMain", sender: self)
                 })
-
-                
             }
             else{
                 print("something went wrong when logging in user");
-                self.loginSuccess = false
+                logHumanIn = false
                 print(error as Any)
-                
             }
             
         })
-       
-        return loginSuccess;
+        return logHumanIn
     }
  
 
@@ -118,18 +104,13 @@ class SignIn_updatedViewController: UIViewController, CLLocationManagerDelegate 
             return
             
         }
-        destination.name = self.name
-        destination.city = self.city
-        destination.country = self.country
-        destination.userId = self.userId
-        destination.guest = false
-        destination.user_coord = self.user_coord
+        destination.human = Human(name: self.sHuman.name, city: self.sHuman.city, country: self.sHuman.country, user_coord: self.sHuman.user_coord, guest: false)
     
     }
     //ACCESS LOCATION DATA
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        var location = locations[0];
-         user_coord = location.coordinate
+        let location = locations[0];
+        sHuman.user_coord = location.coordinate
         //print(location);
         let geoCoder = CLGeocoder()
         geoCoder.reverseGeocodeLocation(location, completionHandler:
@@ -149,13 +130,13 @@ class SignIn_updatedViewController: UIViewController, CLLocationManagerDelegate 
                         }
                         // City
                         if let myCity = placeMark.subAdministrativeArea {
-                            self.city = myCity
+                            self.sHuman.city = myCity
                             
                             //print(self.city)
                         }
                         // Zip code
                         if let zip = placeMark.isoCountryCode {
-                            self.country = zip
+                            self.sHuman.country = zip
                             //print(self.country)
                         }
                         // Country
@@ -164,6 +145,10 @@ class SignIn_updatedViewController: UIViewController, CLLocationManagerDelegate 
                         }
             
                 })
+        
+        if (loginSuccess){
+            self.performSegue(withIdentifier: "upSigntoMain", sender: self)
+        }
         
     }
    

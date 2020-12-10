@@ -18,16 +18,8 @@ class Main_ViewController: UIViewController {
     
     var progress = Progress()
     
-    //global variables_start
-    
-    var name: String="";
-    //var onlineID: String="";
-    var city : String="";
-    var state: String="";
-    var country : String="";
-    var userId: Any = "";
-    var user_coord = CLLocationCoordinate2D(); //HEY OLLY OVER HERE!!!
-    var guest : Bool = false;
+    //global variables 
+    var human = Human()
     var give_recieve_pressed : Bool = false;
     var secondsLeft = 0
     var minutesLeft = 0
@@ -47,14 +39,12 @@ class Main_ViewController: UIViewController {
     
     var other_person = connection() //person connected with in give or recieve
     
-    
-    
     //global variables_end
     
     //VIEW DID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
-        print ( name+" says hello from " + city + " , " + country)
+        print ( human.name+" says hello from " + human.city + " , " + human.country)
         // Do any additional setup after loading the view.
     }
     
@@ -71,8 +61,6 @@ class Main_ViewController: UIViewController {
         let loggedIn = defaults.bool(forKey: "loggedIn")
         let userID = defaults.string(forKey: "userID")
         
-        
-        
         if (loggedIn){
             let ref = Database.database().reference()
             ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -80,8 +68,6 @@ class Main_ViewController: UIViewController {
                     
             let value = snapshot.value as? NSDictionary
             self.welcomeLabel.text = "Welcome, \(value?["firstName"] as? String ?? "")"
-            
-                
               // ...
               }) { (error) in
                 print(error.localizedDescription)
@@ -105,66 +91,66 @@ class Main_ViewController: UIViewController {
     //GIVE PRESSED
     //GIVE PRESSED
     @IBAction func givePressed(_ sender: Any) {
-        var ref = Database.database().reference()
+        let ref = Database.database().reference()
         if give_recieve_pressed { //need to update after 24 hours
             //button already pushed
             return
         }
         give_recieve_pressed = true
-        //updload give user data
-        let data = ["time": ServerValue.timestamp(), "user": name,"city": city, "country": country,"uid":userId,"guest":guest] as [String : Any]
-        var giver_request_id = ref.child("Active_Gives").childByAutoId()
+        //upload give user data
+        let data = human.makeActiveGiveData(timestamp: ServerValue.timestamp())
+        let giver_request_id = ref.child("Active_Gives").childByAutoId()
         giver_request_id.setValue(data)
         print("give pressed")
         
         //query for first Active Recieved
-        var recieveRef = Database.database().reference(withPath: "Active_Recieves").queryOrdered(byChild: "time").queryLimited(toFirst: 1).observeSingleEvent(of: .value) { (snapshot) in
-            
-            if(snapshot.value == nil ){
-                print("no recieves exist")
-                return
-            }
-            
-            var dict: NSDictionary = ["":""]
-            for case let childSnap as DataSnapshot in snapshot.children {
-                dict = childSnap.value as? NSDictionary ?? ["":""]
-                self.other_person.request_id = childSnap.key
-                if(childSnap.key == nil){
-                    
-                    return
-                }
-            }
-            //print(dict["user"] as Any)
-            self.other_person.other_user = dict["user"] as? String ?? "nil"
-            self.other_person.other_uid = dict["uid"]as? String ?? "nil"
-            self.other_person.other_city = dict["city"] as? String ?? "nil"
-            self.other_person.other_country = dict["country"] as? String ?? "nil"
-            self.other_person.other_guest = (dict["guest"] != nil)
-           // print(dict)
-            
-            print(self.other_person.request_id)
-            //delete recieve and give pair
-            //print(snapshot)
-
-            //print(snapshot.key)
-            //print(snapshot.value)
-            if(self.other_person.request_id != ""){
-                print("Giving Meditation/ Healing to " + self.other_person.other_user + ", from " + self.other_person.other_city + ", " + self.other_person.other_country)
-                print("HEY LISTEN OVER HERE B")
-                ref.child("Active_Recieves").child(self.other_person.request_id).setValue(nil)
-                
-                giver_request_id.setValue(nil)
-                self.give_recieve_pressed = false
-                
-            }
-            
-            //print(self.other_person.request_id)
-            
-            
-            //if the give/ recieve are registered users, update their stats
-            return
-            
-        }
+//        var recieveRef = Database.database().reference(withPath: "Active_Recieves").queryOrdered(byChild: "time").queryLimited(toFirst: 1).observeSingleEvent(of: .value) { (snapshot) in
+//            
+//            if(snapshot.value == nil ){
+//                print("no recieves exist")
+//                return
+//            }
+//            
+//            var dict: NSDictionary = ["":""]
+//            for case let childSnap as DataSnapshot in snapshot.children {
+//                dict = childSnap.value as? NSDictionary ?? ["":""]
+//                self.other_person.request_id = childSnap.key
+//                if(childSnap.key == nil){
+//                    
+//                    return
+//                }
+//            }
+//            //print(dict["user"] as Any)
+//            self.other_person.other_user = dict["user"] as? String ?? "nil"
+//            self.other_person.other_uid = dict["uid"]as? String ?? "nil"
+//            self.other_person.other_city = dict["city"] as? String ?? "nil"
+//            self.other_person.other_country = dict["country"] as? String ?? "nil"
+//            self.other_person.other_guest = (dict["guest"] != nil)
+//           // print(dict)
+//            
+//            print(self.other_person.request_id)
+//            //delete recieve and give pair
+//            //print(snapshot)
+//
+//            //print(snapshot.key)
+//            //print(snapshot.value)
+//            if(self.other_person.request_id != ""){
+//                print("Giving Meditation/ Healing to " + self.other_person.other_user + ", from " + self.other_person.other_city + ", " + self.other_person.other_country)
+//                print("HEY LISTEN OVER HERE B")
+//                ref.child("Active_Recieves").child(self.other_person.request_id).setValue(nil)
+//                
+//                giver_request_id.setValue(nil)
+//                self.give_recieve_pressed = false
+//                
+//            }
+//            
+//            //print(self.other_person.request_id)
+//            
+//            
+//            //if the give/ recieve are registered users, update their stats
+//            return
+//            
+//        }
         minutesLeft = Int(timerSlider.value)
         secondsLeft = 0
         progress = Progress(totalUnitCount: Int64(timerSlider.value * 60))

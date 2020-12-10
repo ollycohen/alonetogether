@@ -16,9 +16,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     var ref = Database.database().reference()
     let locationManager = CLLocationManager()
     @IBOutlet weak var name: UITextField! //UI text field from storyboard
-    var city: String = ""
-    var country : String = ""
-    var user_coord = CLLocationCoordinate2D();
+    
+    var myHuman:Human = Human()
     var loggedIn:Bool = false
     //global variables_end
     
@@ -37,20 +36,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     }
     //START PRESSED
     @IBAction func startPressed(_ sender: Any) {
-        print(city)
-        print (country)
+//        print(city)
+//        print (country)
         
         //add user to database
         ref.child("currently online").child(self.name.text ?? "nads").child("name").setValue(self.name.text ?? "nads")
-        ref.child("currently online").child(self.name.text ?? "nads").child("city").setValue(city ?? "STL")
-        ref.child("currently online").child(self.name.text ?? "nads").child("country").setValue(country ?? "US")
+        ref.child("currently online").child(self.name.text ?? "nads").child("city").setValue("STL")
+        ref.child("currently online").child(self.name.text ?? "nads").child("country").setValue(myHuman.country )
 
     }
     //ACCESS LOCATION DATA
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        var location = locations[0];
-        self.user_coord = location.coordinate
-        print("Update location.coordinate in view controller is", user_coord)
+        let location = locations[0];
+        self.myHuman.user_coord = location.coordinate
+        print("Update location.coordinate in view controller is", myHuman.user_coord)
         let geoCoder = CLGeocoder()
         geoCoder.reverseGeocodeLocation(location, completionHandler:
         {
@@ -69,13 +68,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
                         }
                         // City
                         if let myCity = placeMark.subAdministrativeArea {
-                            self.city = myCity
+                            self.myHuman.city = myCity
                             
                             //print(self.city)
                         }
                         // Zip code
                         if let zip = placeMark.isoCountryCode {
-                            self.country = zip
+                            self.myHuman.country = zip
                             //print(self.country)
                         }
                         // Country
@@ -93,16 +92,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         else {
             return
         }
-//        if let theName = name.text {
-//            destination.name = theName
-//        } else {
-//            destination.name = "Human"
-//        }
-        destination.name = "Human"
-        destination.city = self.city
-        destination.country = self.country
-        destination.user_coord = user_coord
-        print("My ViewController Coordinates are,", user_coord)
+        destination.human = Human(name: "Human", city: self.myHuman.city, country: self.myHuman.country, user_coord: self.myHuman.user_coord, guest:false)
     }
     
     func checkForLogin(){

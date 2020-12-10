@@ -11,6 +11,7 @@
 		2514909D2581B202008662D5 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2514909B2581B202008662D5 /* StatsViewController.swift */; };
 		2514909E2581B202008662D5 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2514909B2581B202008662D5 /* StatsViewController.swift */; };
 		320FC2076F6E8EFF7E39F37F /* Pods_AloneTogether_AloneTogetherUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC0FE47F79E635B97D92B45 /* Pods_AloneTogether_AloneTogetherUITests.framework */; };
+		4D40CD202581C7D90013E7CC /* Human.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D40CD1F2581C7D90013E7CC /* Human.swift */; };
 		4DF68A1F2561EA1000123B36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF68A1E2561EA1000123B36 /* AppDelegate.swift */; };
 		4DF68A212561EA1000123B36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF68A202561EA1000123B36 /* SceneDelegate.swift */; };
 		4DF68A232561EA1000123B36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF68A222561EA1000123B36 /* ViewController.swift */; };
@@ -55,6 +56,7 @@
 		2514909B2581B202008662D5 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		499CB112E853ED9D33F2676D /* Pods-AloneTogetherTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AloneTogetherTests.release.xcconfig"; path = "Target Support Files/Pods-AloneTogetherTests/Pods-AloneTogetherTests.release.xcconfig"; sourceTree = "<group>"; };
 		4CC0FE47F79E635B97D92B45 /* Pods_AloneTogether_AloneTogetherUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AloneTogether_AloneTogetherUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D40CD1F2581C7D90013E7CC /* Human.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Human.swift; sourceTree = "<group>"; };
 		4DF68A1B2561EA1000123B36 /* AloneTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AloneTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF68A1E2561EA1000123B36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DF68A202561EA1000123B36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				512C36912579D1E900DB2811 /* extensions.swift */,
+				4D40CD1F2581C7D90013E7CC /* Human.swift */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				2514909C2581B202008662D5 /* StatsViewController.swift in Sources */,
 				4DF68A212561EA1000123B36 /* SceneDelegate.swift in Sources */,
 				51B0D0A925746A0B005DFCB4 /* GuestUserViewController.swift in Sources */,
+				4D40CD202581C7D90013E7CC /* Human.swift in Sources */,
 				51B0D0B825747CC6005DFCB4 /* SignIn_updatedViewController.swift in Sources */,
 				512C36922579D1E900DB2811 /* extensions.swift in Sources */,
 				517BCC702568615100971283 /* BodyPopup_ViewController.swift in Sources */,

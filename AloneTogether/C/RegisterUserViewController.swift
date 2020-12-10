@@ -14,10 +14,8 @@ class RegisterUserViewController: UIViewController,CLLocationManagerDelegate {
 
     //Global variables_start
     let locationManager = CLLocationManager()
-    var city: String = ""
-    var country : String = ""
-    var  userId: Any = ""
-    var user_coord = CLLocationCoordinate2D()
+    var rHuman = Human()
+    var userAdded:Bool = false
     @IBOutlet weak var email: UITextField!
     
     @IBOutlet weak var fName: UITextField!
@@ -62,14 +60,13 @@ class RegisterUserViewController: UIViewController,CLLocationManagerDelegate {
                 var ref: DatabaseReference!
 
                  ref = Database.database().reference()
-                ref.child("users").child((result?.user.uid)! as String).setValue(["email":em, "firstName": fN, "lastName":lN,"phone":ph,"city":self.city,"country":self.country,"uid":result?.user.uid as Any,"TotalMindfulTime":0,"TotalGives":0,"TotalRecieves":0,"guest":false,"lat":user_coord.latitude,"long":user_coord.longitude])
+                ref.child("users").child((result?.user.uid)! as String).setValue(["email":em, "firstName": fN, "lastName":lN,"phone":ph,"city":self.rHuman.city,"country":self.rHuman.country,"uid":result?.user.uid as Any,"TotalMindfulTime":0,"TotalGives":0,"TotalRecieves":0,"guest":false,"coordinates":rHuman.user_coord])
                 
                 let defaults = UserDefaults.standard
                 defaults.set(true, forKey: "loggedIn")
                 defaults.set(result?.user.uid ?? "Error. No user ID found.", forKey: "userID")
                 
-                ///PERFRORM SEGUE
-                self.performSegue(withIdentifier: "RegtoMain", sender: self)
+                userAdded = true
                 
             }
         }
@@ -82,19 +79,15 @@ class RegisterUserViewController: UIViewController,CLLocationManagerDelegate {
         else {
             return
         }
-        destination.name = fName.text ?? "nadia"
-        destination.city = self.city
-        destination.country = self.country
-        destination.userId = self.userId
-        destination.guest = false
-        destination.user_coord = self.user_coord
+
+        destination.human = Human(name: fName.text ?? "nadia", city: rHuman.city, country: rHuman.country, user_coord: self.rHuman.user_coord, guest: true)
     
     }
     
     //ACCESS LOCATION DATA
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        var location = locations[0];
-        user_coord=location.coordinate
+        let location = locations[0];
+        rHuman.user_coord=location.coordinate
         //print(location);
         let geoCoder = CLGeocoder()
         geoCoder.reverseGeocodeLocation(location, completionHandler:
@@ -114,13 +107,13 @@ class RegisterUserViewController: UIViewController,CLLocationManagerDelegate {
                         }
                         // City
                         if let myCity = placeMark.subAdministrativeArea {
-                            self.city = myCity
+                            self.rHuman.city = myCity
                             
                             //print(self.city)
                         }
                         // Zip code
                         if let zip = placeMark.isoCountryCode {
-                            self.country = zip
+                            self.rHuman.country = zip
                             //print(self.country)
                         }
                         // Country
@@ -129,7 +122,10 @@ class RegisterUserViewController: UIViewController,CLLocationManagerDelegate {
                         }
             
                 })
-        
+        if (userAdded){
+            ///PERFRORM SEGUE
+            self.performSegue(withIdentifier: "RegtoMain", sender: self)
+        }
     }
 
     /*

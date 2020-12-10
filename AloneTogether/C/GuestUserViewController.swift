@@ -12,10 +12,12 @@ import CoreLocation
 class GuestUserViewController: UIViewController, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
+    var sendSegue:Bool = false
     @IBOutlet weak var gueset_name: UITextField!
-    var city: String = ""
-    var country : String = ""
-    var guest_coord = CLLocationCoordinate2D()
+//    var city: String = ""
+//    var country : String = ""
+//    var guest_coord = CLLocationCoordinate2D()
+    var guestHuman = Human()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,13 +53,9 @@ class GuestUserViewController: UIViewController, CLLocationManagerDelegate {
                  var ref: DatabaseReference!
 
                   ref = Database.database().reference()
-        ref.child("guest_users").child(name).setValue(["name": name, "city":self.city,"country":self.country,"uid":nil,"guest":true,"lat": guest_coord.latitude,"long": guest_coord.longitude])
-                 
-                 ///PERFRORM SEGUE
-                 self.performSegue(withIdentifier: "GuesttoMain", sender: self)
-
-         
-       
+        ref.child("guest_users").child(name).setValue(["name": name, "city":guestHuman.city,"country":guestHuman.country,"uid":nil,"guest":true,"coordinates": guestHuman.user_coord])
+        
+        sendSegue = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -68,23 +66,16 @@ class GuestUserViewController: UIViewController, CLLocationManagerDelegate {
         }
         /*if(loginSuccess == false){
             return
-            
         }
          */
-        destination.name = self.gueset_name.text ?? "guest"
-        destination.city = self.city
-        destination.country = self.country
-        destination.user_coord = self.guest_coord
-        //destination.userId = nil
-        
-        destination.guest = true
+        destination.human = Human(name: self.gueset_name.text ?? "guest", city: guestHuman.city, country: guestHuman.country, user_coord: guestHuman.user_coord, guest: true)
     }
     
     //ACCESS LOCATION DATA
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        var location = locations[0];
+        let location = locations[0];
         //print(location);
-        guest_coord=location.coordinate
+        guestHuman.user_coord=location.coordinate
         let geoCoder = CLGeocoder()
         geoCoder.reverseGeocodeLocation(location, completionHandler:
         {
@@ -103,31 +94,24 @@ class GuestUserViewController: UIViewController, CLLocationManagerDelegate {
                         }
                         // City
                         if let myCity = placeMark.subAdministrativeArea {
-                            self.city = myCity
-                            
+                            self.guestHuman.city = myCity
                             //print(self.city)
                         }
                         // Zip code
                         if let zip = placeMark.isoCountryCode {
-                            self.country = zip
+                            self.guestHuman.country = zip
                             //print(self.country)
                         }
                         // Country
                         if let myCountry = placeMark.country {
                             //print(myCountry)
                         }
-            
                 })
         
+        if(sendSegue){
+            ///PERFRORM SEGUE
+            self.performSegue(withIdentifier: "GuesttoMain", sender: self)
+        }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
