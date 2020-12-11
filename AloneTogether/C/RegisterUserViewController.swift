@@ -60,13 +60,16 @@ class RegisterUserViewController: UIViewController,CLLocationManagerDelegate {
                 var ref: DatabaseReference!
 
                  ref = Database.database().reference()
-                ref.child("users").child((result?.user.uid)! as String).setValue(["email":em, "firstName": fN, "lastName":lN,"phone":ph,"city":self.rHuman.city,"country":self.rHuman.country,"uid":result?.user.uid as Any,"TotalMindfulTime":0,"TotalGives":0,"TotalRecieves":0,"guest":false,"coordinates":rHuman.user_coord])
+                ref.child("users").child((result?.user.uid)! as String).setValue(["email":em, "firstName": fN, "lastName":lN,"phone":ph,"city":self.rHuman.city,"country":self.rHuman.country,"uid":result?.user.uid as Any,"TotalMindfulTime":0,"TotalGives":0,"TotalRecieves":0,"guest":false,"latitude":rHuman.user_coord.latitude, "longitude":rHuman.user_coord.longitude])
                 
                 let defaults = UserDefaults.standard
                 defaults.set(true, forKey: "loggedIn")
                 defaults.set(result?.user.uid ?? "Error. No user ID found.", forKey: "userID")
                 
                 userAdded = true
+                ///PERFRORM SEGUE
+                print("Let's see if we got the location: ", rHuman.user_coord)
+                self.performSegue(withIdentifier: "RegtoMain", sender: self)
                 
             }
         }
@@ -122,10 +125,11 @@ class RegisterUserViewController: UIViewController,CLLocationManagerDelegate {
                         }
             
                 })
-        if (userAdded){
-            ///PERFRORM SEGUE
-            self.performSegue(withIdentifier: "RegtoMain", sender: self)
-        }
+        
+//        if (userAdded){
+//            ///PERFRORM SEGUE
+//            self.performSegue(withIdentifier: "RegtoMain", sender: self)
+//         }
     }
 
     /*

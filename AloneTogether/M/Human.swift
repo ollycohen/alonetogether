@@ -35,8 +35,9 @@ class Human {
         self.guest = guest
     }
     
-    func makeActiveGiveData(timestamp: [AnyHashable:Any])->[String:Any]{
-        let data = ["time": timestamp, "user": name,"city": city, "country": country,"uid":userId,"guest":guest] as [String : Any]
+    // Still need to add the activity here
+    func makeActiveGiveData(duration: Float)->[String:Any]{
+        let data = ["time": getCurrentDate(), "duration": duration, "user": name,"city": city, "country": country,"uid":userId,"guest":guest,"latitude":user_coord.latitude,"longitude":user_coord.longitude] as [String : Any]
         return data
     }
     

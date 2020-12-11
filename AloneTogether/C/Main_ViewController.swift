@@ -98,10 +98,14 @@ class Main_ViewController: UIViewController {
         }
         give_recieve_pressed = true
         //upload give user data
-        let data = human.makeActiveGiveData(timestamp: ServerValue.timestamp())
+        // let timestamp = ServerValue.timestamp(),
+        let data = human.makeActiveGiveData(duration: timerSlider.value)
         let giver_request_id = ref.child("Active_Gives").childByAutoId()
         giver_request_id.setValue(data)
         print("give pressed")
+        deleteCompletedGives(ref: ref)
+       
+        
         
         //query for first Active Recieved
 //        var recieveRef = Database.database().reference(withPath: "Active_Recieves").queryOrdered(byChild: "time").queryLimited(toFirst: 1).observeSingleEvent(of: .value) { (snapshot) in

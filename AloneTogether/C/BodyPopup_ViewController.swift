@@ -16,7 +16,7 @@ class BodyPopup_ViewController: UIViewController, UITableViewDataSource, UITable
         //perform segue
     }
     
-    var data:[String] = ["Option #1", "Option #2", "Option #3", "Option #4", "Option #5", "Option #6", "Option #7", "Option #8", "Option #9", "Option #10", "Option #11", "Option #12", "Option #13", "Option #14"]
+    var data:[String] = ["Meditate", "Pray", "Dance", "Exercise", "Move", "Imagine", "Play", "Music", "Wander"]
     
     
     override func viewDidLoad() {

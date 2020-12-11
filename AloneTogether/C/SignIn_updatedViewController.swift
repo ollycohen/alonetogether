@@ -78,7 +78,8 @@ class SignIn_updatedViewController: UIViewController, CLLocationManagerDelegate 
                     //update registered user loc on sign-in
                     ref.child("country").setValue(self.sHuman.country)
                     ref.child("city").setValue(self.sHuman.city)
-                    ref.child("coordinates").setValue(self.sHuman.user_coord)
+                    ref.child("latitude").setValue(self.sHuman.user_coord.latitude)
+                    ref.child("longitude").setValue(self.sHuman.user_coord.longitude)
                     //self.performSegue(withIdentifier: "upSigntoMain", sender: self)
                 })
             }
