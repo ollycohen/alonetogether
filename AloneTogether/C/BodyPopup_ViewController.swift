@@ -8,13 +8,17 @@
 
 import UIKit
 
+
+
 class BodyPopup_ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mainView: UIView!
-    @IBAction func selectButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-        //perform segue
-    }
+//    @IBAction func selectButton(_ sender: Any) {
+//        self.dismiss(animated: true, completion: nil)
+//        //perform segue
+//    }
+    
+    let userDefaults = UserDefaults.standard
     
     var data:[String] = ["Meditate", "Pray", "Dance", "Exercise", "Move", "Imagine", "Play", "Music", "Wander"]
     
@@ -44,10 +48,16 @@ class BodyPopup_ViewController: UIViewController, UITableViewDataSource, UITable
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        // Write/Execute any code you want to run when a specific cell is tapped within the TableView.
     
+    weak var delegate: BodyPopDelegate? //SET DELEGATE
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Write/Execute any code you want to run when a specific cell is tapped within the TableView.
+        let selected = data[indexPath.row]
+        print("SELECTED: \(selected)")
+        self.userDefaults.set(selected, forKey: "currentActivity")
+        
+        self.delegate?.updateLabel(withText: selected)
+        self.dismiss(animated: true, completion: nil)
     }
     
     func setupTableView(){
@@ -56,10 +66,12 @@ class BodyPopup_ViewController: UIViewController, UITableViewDataSource, UITable
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
-    func fetchDataForTableview(){
-        // data = whatever you want the contents of the "data" array to contain (I.E. a list of options).
-    }
-
+//    func fetchDataForTableview(){
+//        // data = whatever you want the contents of the "data" array to contain (I.E. a list of options).
+//    }
+    
+    
+    
     /*
     // MARK: - Navigation
 

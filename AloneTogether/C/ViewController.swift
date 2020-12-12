@@ -60,7 +60,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
 
                         // Location name
                         if let locationName = placeMark.location {
-                           // print(locationName)
+                            // print(locationName)
                         }
                         // Street address
                         if let street = placeMark.thoroughfare {

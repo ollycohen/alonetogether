@@ -9,7 +9,55 @@
 import UIKit
 import FirebaseDatabase
 import MapKit
+
+extension Main_ViewController: BodyPopDelegate {
+    func updateLabel(withText text: String) {
+        self.bodybtn.setTitle(text, for: .normal)
+    }
+}
+
+extension Main_ViewController: HashtagPopDelegate {
+    func updateHashtagLab(withText text: String) {
+        self.causebtn.setTitle(text, for: .normal)
+    }
+}
+
+protocol BodyPopDelegate: class {
+    func updateLabel(withText text: String)
+    }
+
+protocol HashtagPopDelegate: class {
+    func updateHashtagLab(withText text: String)
+    }
+
+
+
+
+
+
 class Main_ViewController: UIViewController {
+    //SEGUE TO BODY POPOVER:
+    @IBAction func presentActivitiesBtn(_ sender: Any) {
+        //presentVC2()
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "Load BodyVC") {
+            print("Prepare")
+            let destination = segue.destination as! BodyPopup_ViewController
+            destination.delegate = self
+        }
+        if (segue.identifier == "Load HashtagVC"){
+            print("Prepare")
+            let destination = segue.destination as! HashtagsViewController
+            destination.delegate = self
+        }
+    
+    }
+    
+    
+    
+    
     @IBOutlet weak var bodybtn: UIButton!
     //@IBOutlet weak var mindbtn: UIButton!
     @IBOutlet weak var causebtn: UIButton!
@@ -29,6 +77,7 @@ class Main_ViewController: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var timerSlider: UISlider!
     @IBOutlet weak var progressBar: UIProgressView!
+    
     
     struct connection{
         var other_city : String = ""
@@ -64,6 +113,7 @@ class Main_ViewController: UIViewController {
         let loggedIn = defaults.bool(forKey: "loggedIn")
         let userID = defaults.string(forKey: "userID")
         timerSlider.value = 30
+        print("\nMAIN VIEW APPEARED\n")
         
         if (loggedIn){
             ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in

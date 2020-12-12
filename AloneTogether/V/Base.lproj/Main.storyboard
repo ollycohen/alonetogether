@@ -301,7 +301,8 @@
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="regular"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="A1H-eF-gdp" kind="presentation" id="nnM-LQ-Bks"/>
+                                                    <action selector="presentActivitiesBtn:" destination="VfE-Kb-XuF" eventType="touchUpInside" id="5gr-f9-sDU"/>
+                                                    <segue destination="A1H-eF-gdp" kind="presentation" identifier="Load BodyVC" id="nnM-LQ-Bks"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -357,7 +358,7 @@
                                                 <color key="tintColor" systemColor="systemTealColor"/>
                                                 <state key="normal">
                                                     <color key="titleColor" systemColor="systemTealColor"/>
-                                                    <imageReference key="image" image="volume.3.fill" catalog="system" symbolScale="large"/>
+                                                    <imageReference key="image" image="speaker" catalog="system" symbolScale="large"/>
                                                 </state>
                                             </button>
                                         </subviews>
@@ -377,7 +378,7 @@
                                     <color key="titleColor" systemColor="systemTealColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="QRW-Ot-a3j" kind="presentation" id="s61-Z5-W3T"/>
+                                    <segue destination="QRW-Ot-a3j" kind="presentation" identifier="Load HashtagVC" id="s61-Z5-W3T"/>
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satelliteFlyover" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P7A-1K-KQa">
@@ -458,7 +459,7 @@
                             <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZVp-Zo-Njq">
                                 <rect key="frame" x="52" y="229" width="310.5" height="448"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Body Activity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHR-SC-k70">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHR-SC-k70">
                                         <rect key="frame" x="0.0" y="0.0" width="310.5" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="GWE-Yf-mMk"/>
@@ -468,47 +469,20 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wo3-CC-1B3">
-                                        <rect key="frame" x="0.0" y="45" width="310.5" height="358"/>
+                                        <rect key="frame" x="0.0" y="45" width="310.5" height="403"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="2eI-hg-6yL">
-                                        <rect key="frame" x="0.0" y="408" width="310.5" height="40"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PZJ-cl-WKE">
-                                                <rect key="frame" x="0.0" y="0.0" width="103.5" height="40"/>
-                                            </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Pc-0A-oFI">
-                                                <rect key="frame" x="103.5" y="0.0" width="103.5" height="40"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                                <state key="normal" title="Select">
-                                                    <color key="titleColor" systemColor="darkTextColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="selectButton:" destination="A1H-eF-gdp" eventType="touchUpInside" id="0Vp-se-jRT"/>
-                                                </connections>
-                                            </button>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KgZ-57-ix6">
-                                                <rect key="frame" x="207" y="0.0" width="103.5" height="40"/>
-                                            </view>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="4Sn-Wr-TIk"/>
-                                        </constraints>
-                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Wo3-CC-1B3" firstAttribute="centerX" secondItem="ZVp-Zo-Njq" secondAttribute="centerX" id="6bO-52-OHH"/>
-                                    <constraint firstItem="2eI-hg-6yL" firstAttribute="top" secondItem="Wo3-CC-1B3" secondAttribute="bottom" constant="5" id="9dr-BN-iNp"/>
                                     <constraint firstAttribute="trailing" secondItem="Wo3-CC-1B3" secondAttribute="trailing" id="9kh-tc-Zbh"/>
                                     <constraint firstAttribute="trailing" secondItem="bHR-SC-k70" secondAttribute="trailing" id="IHD-oo-f4D"/>
-                                    <constraint firstItem="2eI-hg-6yL" firstAttribute="leading" secondItem="ZVp-Zo-Njq" secondAttribute="leading" id="OR3-0W-ZLE"/>
                                     <constraint firstItem="Wo3-CC-1B3" firstAttribute="top" secondItem="bHR-SC-k70" secondAttribute="bottom" constant="5" id="OYM-cj-bSw"/>
                                     <constraint firstItem="Wo3-CC-1B3" firstAttribute="leading" secondItem="ZVp-Zo-Njq" secondAttribute="leading" id="Wpb-uj-6sP"/>
-                                    <constraint firstAttribute="trailing" secondItem="2eI-hg-6yL" secondAttribute="trailing" id="gcn-QE-ncV"/>
                                     <constraint firstItem="bHR-SC-k70" firstAttribute="leading" secondItem="ZVp-Zo-Njq" secondAttribute="leading" id="iNs-SC-5Xn"/>
                                     <constraint firstItem="bHR-SC-k70" firstAttribute="top" secondItem="ZVp-Zo-Njq" secondAttribute="top" id="k6V-Xu-POT"/>
-                                    <constraint firstAttribute="bottom" secondItem="2eI-hg-6yL" secondAttribute="bottom" id="s5b-KX-U5V"/>
+                                    <constraint firstAttribute="bottom" secondItem="Wo3-CC-1B3" secondAttribute="bottom" id="xb8-ac-Vzf"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -553,7 +527,7 @@
                                         <rect key="frame" x="0.0" y="101" width="310.5" height="302"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
-                                    <searchBar contentMode="redraw" searchBarStyle="prominent" text="" translatesAutoresizingMaskIntoConstraints="NO" id="qwZ-F3-zUs" userLabel="Hashtag Search Bar">
+                                    <searchBar hidden="YES" contentMode="redraw" searchBarStyle="prominent" text="" translatesAutoresizingMaskIntoConstraints="NO" id="qwZ-F3-zUs" userLabel="Hashtag Search Bar">
                                         <rect key="frame" x="0.0" y="45" width="310.5" height="56"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
@@ -772,11 +746,8 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="person.crop.rectangle.fill" catalog="system" width="128" height="93"/>
+        <image name="speaker" catalog="system" width="128" height="124"/>
         <image name="stars" width="2725" height="4096"/>
-        <image name="volume.3.fill" catalog="system" width="128" height="86"/>
-        <systemColor name="darkTextColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

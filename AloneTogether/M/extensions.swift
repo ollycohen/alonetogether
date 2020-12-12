@@ -9,8 +9,6 @@
 import Foundation
 import UIKit
 
-
-
 //THIS WAS TAKEN FROM: https://stackoverflow.com/questions/59237515/add-glow-effect-to-text-of-a-ui-button-swift
 extension UIView {
     enum GlowEffect: Float {
