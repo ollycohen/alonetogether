@@ -63,6 +63,7 @@ class Main_ViewController: UIViewController {
         let defaults = UserDefaults.standard
         let loggedIn = defaults.bool(forKey: "loggedIn")
         let userID = defaults.string(forKey: "userID")
+        timerSlider.value = 30
         
         if (loggedIn){
             ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
