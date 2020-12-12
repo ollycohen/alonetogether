@@ -37,7 +37,7 @@ class Human {
     
     // Still need to add the activity here
     func makeActiveGiveData(duration: Float)->[String:Any]{
-        let data = ["time": getCurrentDate(), "duration": duration, "user": name,"city": city, "country": country,"uid":userId,"guest":guest,"latitude":user_coord.latitude,"longitude":user_coord.longitude] as [String : Any]
+        let data = ["time": getCurrentDate(), "duration": duration, "user": name,"city": city, "country": country,"uid":userId,"guest":guest,"latitude":user_coord.latitude,"longitude":user_coord.longitude,"paired":false] as [String : Any]
         return data
     }
     

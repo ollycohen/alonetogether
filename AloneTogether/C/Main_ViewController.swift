@@ -15,8 +15,10 @@ class Main_ViewController: UIViewController {
     @IBOutlet weak var causebtn: UIButton!
     @IBOutlet weak var givebtn: UIButton! //GIVE BTN IS START BTN
     @IBOutlet weak var welcomeLabel: UILabel!
-    
+    @IBOutlet weak var theMap: MKMapView!
+    var currentKey:DatabaseReference = DatabaseReference()
     var progress = Progress()
+    var connectionPath = MKPolyline()
     
     //global variables 
     var human = Human()
@@ -38,6 +40,7 @@ class Main_ViewController: UIViewController {
     }
     
     var other_person = connection() //person connected with in give or recieve
+    let ref = Database.database().reference()
     
     //global variables_end
     
@@ -62,7 +65,6 @@ class Main_ViewController: UIViewController {
         let userID = defaults.string(forKey: "userID")
         
         if (loggedIn){
-            let ref = Database.database().reference()
             ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
               // Get user value
                     
@@ -77,6 +79,9 @@ class Main_ViewController: UIViewController {
         else{
             self.welcomeLabel.text = "Welcome, Guest"
         }
+        
+        deleteCompletedGives(ref: ref)
+        displayAllGivers(ref: ref, theMap: theMap)
     
         //welcomeLabel.text = "Welcome, \(userFirstName)"
         
@@ -91,7 +96,7 @@ class Main_ViewController: UIViewController {
     //GIVE PRESSED
     //GIVE PRESSED
     @IBAction func givePressed(_ sender: Any) {
-        let ref = Database.database().reference()
+//        let ref = Database.database().reference()
         if give_recieve_pressed { //need to update after 24 hours
             //button already pushed
             return
@@ -100,10 +105,12 @@ class Main_ViewController: UIViewController {
         //upload give user data
         // let timestamp = ServerValue.timestamp(),
         let data = human.makeActiveGiveData(duration: timerSlider.value)
-        let giver_request_id = ref.child("Active_Gives").childByAutoId()
-        giver_request_id.setValue(data)
+        currentKey = ref.child("Active_Gives").childByAutoId()
+        currentKey.setValue(data)
+        
+        connectAGive(ref: ref, myKey: currentKey.key ?? "None", theMap: theMap, myHuman: human)
         print("give pressed")
-        deleteCompletedGives(ref: ref)
+        //deleteCompletedGives(ref: ref)
        
         
         
@@ -180,6 +187,11 @@ class Main_ViewController: UIViewController {
                 givebtn.isHidden = false
                 progressBar.isHidden = true
                 
+//                print("Should delete this key: ", currentKey)
+                currentKey.removeValue()
+                displayAllGivers(ref: ref, theMap: theMap)
+                theMap.removeOverlay(connectionPath)
+                
                 return
             }
             
@@ -205,6 +217,35 @@ class Main_ViewController: UIViewController {
             
         }
     }
+    
+    //https://www.hackingwithswift.com/example-code/location/how-to-add-annotations-to-mkmapview-using-mkpointannotation-and-mkpinannotationview
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard annotation is MKPointAnnotation else { return nil }
+
+        let identifier = "Annotation"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+
+        if annotationView == nil {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView!.canShowCallout = true
+        } else {
+            annotationView!.annotation = annotation
+        }
+
+        return annotationView
+    }
+    
+    //https://stackoverflow.com/questions/49417144/how-do-i-create-a-line-polyline-between-location-points-in-swift
+//    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+//           if overlay is MKPolyline {
+//               let polylineRenderer = MKPolylineRenderer(overlay: overlay)
+//               polylineRenderer.strokeColor = UIColor.blue
+//               polylineRenderer.lineWidth = 5
+//               return polylineRenderer
+//           }
+//
+//           return nil
+//       }
     
     //RECIEVE PRESSED
 //    @IBAction func recievePressed(_ sender: Any) {

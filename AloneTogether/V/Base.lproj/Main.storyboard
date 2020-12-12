@@ -419,6 +419,7 @@
                         <outlet property="causebtn" destination="J4M-gh-ziI" id="kI6-us-NSy"/>
                         <outlet property="givebtn" destination="Ltw-Jj-OUo" id="dE3-Uc-h6T"/>
                         <outlet property="progressBar" destination="yRg-zz-t8c" id="brb-Mz-trA"/>
+                        <outlet property="theMap" destination="P7A-1K-KQa" id="ptx-Is-7jq"/>
                         <outlet property="timerLabel" destination="z3k-8k-xwJ" id="pRx-wC-Xix"/>
                         <outlet property="timerSlider" destination="6eD-J2-zPC" id="1CB-3h-Hsm"/>
                         <outlet property="welcomeLabel" destination="TA7-UC-q4T" id="Shb-wn-nA8"/>

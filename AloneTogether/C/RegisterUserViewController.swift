@@ -83,7 +83,7 @@ class RegisterUserViewController: UIViewController,CLLocationManagerDelegate {
             return
         }
 
-        destination.human = Human(name: fName.text ?? "nadia", city: rHuman.city, country: rHuman.country, user_coord: self.rHuman.user_coord, guest: true)
+        destination.human = Human(name: fName.text ?? "nadia", city: rHuman.city, country: rHuman.country, user_coord: self.rHuman.user_coord, guest: false)
     
     }
     
