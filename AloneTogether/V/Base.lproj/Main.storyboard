@@ -358,8 +358,11 @@
                                                 <color key="tintColor" systemColor="systemTealColor"/>
                                                 <state key="normal">
                                                     <color key="titleColor" systemColor="systemTealColor"/>
-                                                    <imageReference key="image" image="speaker" catalog="system" symbolScale="large"/>
+                                                    <imageReference key="image" image="speaker.slash.fill" catalog="system" symbolScale="large"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="speakerBtnPress:" destination="VfE-Kb-XuF" eventType="touchUpInside" id="KeB-bd-aAe"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -409,6 +412,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="g6G-Cp-R8f">
+                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="g7l-Pq-VoC"/>
                         <barButtonItem key="rightBarButtonItem" title="userInfo_btn" image="person.crop.rectangle.fill" catalog="system" id="Dq6-QY-lRb">
                             <connections>
                                 <segue destination="ah2-Zj-RhX" kind="show" id="RzI-Vc-bg4"/>
@@ -420,6 +424,7 @@
                         <outlet property="causebtn" destination="J4M-gh-ziI" id="kI6-us-NSy"/>
                         <outlet property="givebtn" destination="Ltw-Jj-OUo" id="dE3-Uc-h6T"/>
                         <outlet property="progressBar" destination="yRg-zz-t8c" id="brb-Mz-trA"/>
+                        <outlet property="speakerBtn" destination="EQa-vS-IsE" id="9ce-Ls-Hj5"/>
                         <outlet property="theMap" destination="P7A-1K-KQa" id="ptx-Is-7jq"/>
                         <outlet property="timerLabel" destination="z3k-8k-xwJ" id="pRx-wC-Xix"/>
                         <outlet property="timerSlider" destination="6eD-J2-zPC" id="1CB-3h-Hsm"/>
@@ -746,7 +751,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="person.crop.rectangle.fill" catalog="system" width="128" height="93"/>
-        <image name="speaker" catalog="system" width="128" height="124"/>
+        <image name="speaker.slash.fill" catalog="system" width="124" height="128"/>
         <image name="stars" width="2725" height="4096"/>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

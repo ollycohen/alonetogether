@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import MapKit
+import AVFoundation
 
 extension Main_ViewController: BodyPopDelegate {
     func updateLabel(withText text: String) {
@@ -60,6 +61,7 @@ class Main_ViewController: UIViewController {
     
     @IBOutlet weak var bodybtn: UIButton!
     //@IBOutlet weak var mindbtn: UIButton!
+    @IBOutlet weak var speakerBtn: UIButton!
     @IBOutlet weak var causebtn: UIButton!
     @IBOutlet weak var givebtn: UIButton! //GIVE BTN IS START BTN
     @IBOutlet weak var welcomeLabel: UILabel!
@@ -93,12 +95,26 @@ class Main_ViewController: UIViewController {
     
     //global variables_end
     
+    var backgroundMusic: AVAudioPlayer?
+    var soundOn = false
     //VIEW DID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
         print ( human.name+" says hello from " + human.city + " , " + human.country)
         // Do any additional setup after loading the view.
+        
+        //SOUND FROM https://www.babysleepsite.com/downloads/noise-only.mp3
+        let path = Bundle.main.path(forResource: "whiteNoise.mp3", ofType:nil)!
+        let url = URL(fileURLWithPath: path)
+        do {
+            backgroundMusic = try AVAudioPlayer(contentsOf: url)
+        } catch {
+            // couldn't load file :(
+        }
+        backgroundMusic?.numberOfLoops = -1
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
 //        mindbtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
@@ -106,14 +122,14 @@ class Main_ViewController: UIViewController {
         causebtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
         givebtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
         //receivebtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
-        
+        self.navigationItem.setHidesBackButton(true, animated: false)
         // Set "Title" at the top of the view to either say "Welcome, {Name}" or "Welcome, Guest".
         
         let defaults = UserDefaults.standard
         let loggedIn = defaults.bool(forKey: "loggedIn")
         let userID = defaults.string(forKey: "userID")
         timerSlider.value = 30
-        print("\nMAIN VIEW APPEARED\n")
+        //print("\nMAIN VIEW APPEARED\n")
         
         if (loggedIn){
             ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -137,6 +153,27 @@ class Main_ViewController: UIViewController {
         //welcomeLabel.text = "Welcome, \(userFirstName)"
         
     }
+    
+    
+
+    //https://www.hackingwithswift.com/example-code/media/how-to-play-sounds-using-avaudioplayer
+    @IBAction func speakerBtnPress(_ sender: Any) {
+ 
+        if !soundOn{
+            backgroundMusic?.play()
+            soundOn = true
+            speakerBtn.setImage(UIImage(systemName: "speaker.wave.2.fill", withConfiguration: UIImage.SymbolConfiguration(scale: .large)), for: .normal)
+           
+            
+        } else {
+            backgroundMusic?.stop()
+            soundOn = false
+            speakerBtn.setImage(UIImage(systemName: "speaker.slash.fill", withConfiguration: UIImage.SymbolConfiguration(scale: .large)), for: .normal)
+        }
+    }
+    
+    
+    
     
     @IBAction func timerSetSlider(_ sender: UISlider)
     {
