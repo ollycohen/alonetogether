@@ -428,6 +428,7 @@
                         <outlet property="givebtn" destination="Ltw-Jj-OUo" id="dE3-Uc-h6T"/>
                         <outlet property="progressBar" destination="yRg-zz-t8c" id="brb-Mz-trA"/>
                         <outlet property="speakerBtn" destination="EQa-vS-IsE" id="9ce-Ls-Hj5"/>
+                        <outlet property="stopBtn" destination="k4Q-oB-OA4" id="caZ-rx-imQ"/>
                         <outlet property="theMap" destination="P7A-1K-KQa" id="ptx-Is-7jq"/>
                         <outlet property="timerLabel" destination="z3k-8k-xwJ" id="pRx-wC-Xix"/>
                         <outlet property="timerSlider" destination="6eD-J2-zPC" id="1CB-3h-Hsm"/>
@@ -532,13 +533,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="exw-Ok-5ey" userLabel="Hashtags Table View">
-                                        <rect key="frame" x="0.0" y="101" width="310.5" height="302"/>
+                                        <rect key="frame" x="0.0" y="45" width="310.5" height="358"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
-                                    <searchBar hidden="YES" contentMode="redraw" searchBarStyle="prominent" text="" translatesAutoresizingMaskIntoConstraints="NO" id="qwZ-F3-zUs" userLabel="Hashtag Search Bar">
-                                        <rect key="frame" x="0.0" y="45" width="310.5" height="56"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </searchBar>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zyG-hj-z2d">
                                         <rect key="frame" x="0.0" y="403" width="310.5" height="40"/>
                                         <subviews>
@@ -569,15 +566,12 @@
                                     <constraint firstItem="zyG-hj-z2d" firstAttribute="leading" secondItem="the-hn-g8D" secondAttribute="leading" id="CdI-B5-Njp"/>
                                     <constraint firstItem="exw-Ok-5ey" firstAttribute="leading" secondItem="the-hn-g8D" secondAttribute="leading" id="J7c-30-Mg9"/>
                                     <constraint firstAttribute="trailing" secondItem="XJ2-BL-Ser" secondAttribute="trailing" id="Klq-Yw-FhC"/>
+                                    <constraint firstItem="exw-Ok-5ey" firstAttribute="top" secondItem="XJ2-BL-Ser" secondAttribute="bottom" id="Kuc-8e-Uwj"/>
                                     <constraint firstAttribute="trailing" secondItem="zyG-hj-z2d" secondAttribute="trailing" id="LDK-ku-HMH"/>
-                                    <constraint firstItem="qwZ-F3-zUs" firstAttribute="leading" secondItem="the-hn-g8D" secondAttribute="leading" id="UDn-yR-YC4"/>
                                     <constraint firstAttribute="trailing" secondItem="exw-Ok-5ey" secondAttribute="trailing" id="UJM-0B-qbb"/>
                                     <constraint firstItem="XJ2-BL-Ser" firstAttribute="top" secondItem="the-hn-g8D" secondAttribute="top" constant="5" id="VHI-Dy-3Ol"/>
-                                    <constraint firstItem="qwZ-F3-zUs" firstAttribute="top" secondItem="XJ2-BL-Ser" secondAttribute="bottom" id="gHm-NO-WsK"/>
                                     <constraint firstItem="zyG-hj-z2d" firstAttribute="top" secondItem="exw-Ok-5ey" secondAttribute="bottom" id="gLh-rO-A30"/>
                                     <constraint firstAttribute="bottom" secondItem="zyG-hj-z2d" secondAttribute="bottom" constant="5" id="hjR-Qz-CPm"/>
-                                    <constraint firstAttribute="trailing" secondItem="qwZ-F3-zUs" secondAttribute="trailing" id="nzN-YH-ql5"/>
-                                    <constraint firstItem="exw-Ok-5ey" firstAttribute="top" secondItem="qwZ-F3-zUs" secondAttribute="bottom" id="pA9-0c-CqQ"/>
                                     <constraint firstItem="XJ2-BL-Ser" firstAttribute="leading" secondItem="the-hn-g8D" secondAttribute="leading" id="s35-3b-KKs"/>
                                 </constraints>
                             </view>
@@ -592,7 +586,6 @@
                     </view>
                     <connections>
                         <outlet property="mainView" destination="the-hn-g8D" id="Kp6-43-7T0"/>
-                        <outlet property="searchBar" destination="qwZ-F3-zUs" id="c1l-0k-ONM"/>
                         <outlet property="tableView" destination="exw-Ok-5ey" id="zzu-1a-Wvd"/>
                     </connections>
                 </viewController>

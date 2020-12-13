@@ -66,6 +66,8 @@ class Main_ViewController: UIViewController {
     @IBOutlet weak var givebtn: UIButton! //GIVE BTN IS START BTN
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var theMap: MKMapView!
+  
+    @IBOutlet weak var stopBtn: UIButton!
     var currentKey:DatabaseReference = DatabaseReference()
     var progress = Progress()
     var connectionPath = MKPolyline()
@@ -104,7 +106,7 @@ class Main_ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         //SOUND FROM https://www.babysleepsite.com/downloads/noise-only.mp3
-        let path = Bundle.main.path(forResource: "whiteNoise.mp3", ofType:nil)!
+        let path = Bundle.main.path(forResource: "whiteNoise2.wav", ofType:nil)!
         let url = URL(fileURLWithPath: path)
         do {
             backgroundMusic = try AVAudioPlayer(contentsOf: url)
@@ -121,6 +123,7 @@ class Main_ViewController: UIViewController {
         bodybtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
         causebtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
         givebtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
+        stopBtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
         //receivebtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
         self.navigationItem.setHidesBackButton(true, animated: false)
         // Set "Title" at the top of the view to either say "Welcome, {Name}" or "Welcome, Guest".
