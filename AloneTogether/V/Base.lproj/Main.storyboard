@@ -103,6 +103,9 @@
                     <navigationItem key="navigationItem" title="Welcome" id="P3g-GC-iqm"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="guestBtn" destination="T4a-fT-K4m" id="N4W-h4-Oxf"/>
+                        <outlet property="registerBtn" destination="hoK-JC-qg0" id="G5P-Ha-gLG"/>
+                        <outlet property="signInBtn" destination="5wX-HW-Jgq" id="bWn-Je-f3c"/>
                         <segue destination="VfE-Kb-XuF" kind="show" identifier="welcomeToMain" id="EXa-yw-1ZB"/>
                     </connections>
                 </viewController>
