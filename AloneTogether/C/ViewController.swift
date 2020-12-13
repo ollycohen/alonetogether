@@ -6,12 +6,17 @@
 //  Copyright © 2020 Oliver K Cohen. All rights reserved.
 //
 
+//This whole file seems messed up - I dont know why these outlets are here, but I dont want to mess anything up - Ben
+
 import UIKit
 //WELCOME PAGE
 import CoreLocation
 import FirebaseDatabase
 class ViewController: UIViewController, CLLocationManagerDelegate{
     
+    @IBOutlet weak var guestBtn: UIButton!
+    @IBOutlet weak var registerBtn: UIButton!
+    @IBOutlet weak var signInBtn: UIButton!
     //global variables_start
     var ref = Database.database().reference()
     let locationManager = CLLocationManager()
@@ -24,12 +29,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     //VIEW DID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("WELCOME PAGE LOADED")
         locationManager.delegate = self;
         locationManager.requestWhenInUseAuthorization();
         locationManager.startUpdatingLocation();
         // Do any additional setup after loading the view.
         // First Commit - Benjamin
-        
+        signInBtn.layer.cornerRadius = 10.0
+        registerBtn.layer.cornerRadius = 10.0
+        guestBtn.layer.cornerRadius = 10.0
         let defaults = UserDefaults.standard
         loggedIn = defaults.bool(forKey: "loggedIn")
         
