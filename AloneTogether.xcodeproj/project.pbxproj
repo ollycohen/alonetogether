@@ -12,6 +12,7 @@
 		2514909E2581B202008662D5 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2514909B2581B202008662D5 /* StatsViewController.swift */; };
 		320FC2076F6E8EFF7E39F37F /* Pods_AloneTogether_AloneTogetherUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CC0FE47F79E635B97D92B45 /* Pods_AloneTogether_AloneTogetherUITests.framework */; };
 		4D40CD202581C7D90013E7CC /* Human.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D40CD1F2581C7D90013E7CC /* Human.swift */; };
+		4D46E7C3258688690031D01B /* whiteNoise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4D46E7C2258688690031D01B /* whiteNoise.mp3 */; };
 		4D94C7692582FEE000B36DFF /* FirebaseFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D94C7682582FEE000B36DFF /* FirebaseFunctions.swift */; };
 		4DF68A1F2561EA1000123B36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF68A1E2561EA1000123B36 /* AppDelegate.swift */; };
 		4DF68A212561EA1000123B36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF68A202561EA1000123B36 /* SceneDelegate.swift */; };
@@ -23,7 +24,6 @@
 		4DF68A392561EA1800123B36 /* AloneTogetherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF68A382561EA1800123B36 /* AloneTogetherTests.swift */; };
 		4DF68A442561EA1800123B36 /* AloneTogetherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF68A432561EA1800123B36 /* AloneTogetherUITests.swift */; };
 		512C36922579D1E900DB2811 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512C36912579D1E900DB2811 /* extensions.swift */; };
-		5145B229258680C200416C46 /* whiteNoise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5145B228258680C200416C46 /* whiteNoise.mp3 */; };
 		51673101256884950091CA0A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51673100256884950091CA0A /* SignInViewController.swift */; };
 		517BCC6C25685F8B00971283 /* Main_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517BCC6B25685F8B00971283 /* Main_ViewController.swift */; };
 		517BCC6E2568614300971283 /* MindPopup_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517BCC6D2568614300971283 /* MindPopup_ViewController.swift */; };
@@ -59,6 +59,7 @@
 		499CB112E853ED9D33F2676D /* Pods-AloneTogetherTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AloneTogetherTests.release.xcconfig"; path = "Target Support Files/Pods-AloneTogetherTests/Pods-AloneTogetherTests.release.xcconfig"; sourceTree = "<group>"; };
 		4CC0FE47F79E635B97D92B45 /* Pods_AloneTogether_AloneTogetherUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AloneTogether_AloneTogetherUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D40CD1F2581C7D90013E7CC /* Human.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Human.swift; sourceTree = "<group>"; };
+		4D46E7C2258688690031D01B /* whiteNoise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = whiteNoise.mp3; sourceTree = "<group>"; };
 		4D94C7682582FEE000B36DFF /* FirebaseFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFunctions.swift; sourceTree = "<group>"; };
 		4DF68A1B2561EA1000123B36 /* AloneTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AloneTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF68A1E2561EA1000123B36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,7 +77,6 @@
 		4DF68A432561EA1800123B36 /* AloneTogetherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AloneTogetherUITests.swift; sourceTree = "<group>"; };
 		4DF68A452561EA1800123B36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		512C36912579D1E900DB2811 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
-		5145B228258680C200416C46 /* whiteNoise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = whiteNoise.mp3; path = ../../../../whiteNoise.mp3; sourceTree = "<group>"; };
 		51673100256884950091CA0A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		517BCC6B25685F8B00971283 /* Main_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main_ViewController.swift; sourceTree = "<group>"; };
 		517BCC6D2568614300971283 /* MindPopup_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindPopup_ViewController.swift; sourceTree = "<group>"; };
@@ -197,7 +197,7 @@
 			children = (
 				512C36912579D1E900DB2811 /* extensions.swift */,
 				4D40CD1F2581C7D90013E7CC /* Human.swift */,
-				5145B228258680C200416C46 /* whiteNoise.mp3 */,
+				4D46E7C2258688690031D01B /* whiteNoise.mp3 */,
 				4D94C7682582FEE000B36DFF /* FirebaseFunctions.swift */,
 			);
 			path = M;
@@ -348,7 +348,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5145B229258680C200416C46 /* whiteNoise.mp3 in Resources */,
+				4D46E7C3258688690031D01B /* whiteNoise.mp3 in Resources */,
 				4DF68A2E2561EA1700123B36 /* LaunchScreen.storyboard in Resources */,
 				96EBB26A2573050600C36325 /* GoogleService-Info.plist in Resources */,
 				4DF68A2B2561EA1700123B36 /* Assets.xcassets in Resources */,
