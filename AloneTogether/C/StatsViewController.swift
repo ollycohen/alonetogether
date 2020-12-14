@@ -26,6 +26,7 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
     let defaults = UserDefaults.standard
     var userID = "placeholder"
     let ref = Database.database().reference()
+    var totalTime = 0
     
     let formatter = DateFormatter()
     
@@ -56,12 +57,45 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         let boundaryDate:Date = Calendar.current.date(byAdding: .day, value: offsetConstant, to: currentDate)!
         boundedData = []
+        totalTime = 0
         for i in data{
             let thisDate = formatter.date(from: i.date)
             if (thisDate! > boundaryDate){
                 boundedData.append(i)
+                totalTime += i.duration
+                
             }
         }
+        let minutes = self.totalTime % 60
+        let hours = Int(self.totalTime / 60)
+        var statement = ""
+        
+        if(0 < hours){
+            statement = "\(hours) "
+            if(hours == 1){
+                statement += "hour "
+            }
+            else{
+                statement += "hours "
+            }
+            
+            if(minutes > 0){
+                
+                statement += "and \(minutes) "
+                
+            }
+        }
+        else{
+            statement = "\(minutes) "
+        }
+        if(minutes == 1){
+            statement += "minute."
+        }
+        else{
+            statement += "minutes."
+        }
+        
+        self.mindfullnessTimeLabel.text = statement
         tableView.reloadData()
         
         
@@ -115,6 +149,7 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
     func fetchDataForTableview(){
         
         // data = whatever you want the contents of the "data" array to contain (I.E. a list of options).
+        totalTime = 0
         ref.child("users").child(userID).child("completedSessions").observeSingleEvent(of: .value, with: { snapshot in
             for child in snapshot.children {
                 let dataSnap = child as! DataSnapshot
@@ -124,10 +159,43 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
                 activity.type = activityDict["Type"] as! String
                 activity.duration = activityDict["Duration"] as! Int
                 
+                self.totalTime += activityDict["Duration"] as! Int
+                
                 self.data.append(activity)
                 self.boundedData = self.data
                 self.tableView.reloadData()
             }
+            
+            let minutes = self.totalTime % 60
+            let hours = Int(self.totalTime / 60)
+            var statement = ""
+            
+            if(0 < hours){
+                statement = "\(hours) "
+                if(hours == 1){
+                    statement += "hour "
+                }
+                else{
+                    statement += "hours "
+                }
+                
+                if(minutes > 0){
+                    
+                    statement += "and \(minutes) "
+                    
+                }
+            }
+            else{
+                statement = "\(minutes) "
+            }
+            if(minutes == 1){
+                statement += "minute."
+            }
+            else{
+                statement += "minutes."
+            }
+            
+            self.mindfullnessTimeLabel.text = statement
         })
     }
     
