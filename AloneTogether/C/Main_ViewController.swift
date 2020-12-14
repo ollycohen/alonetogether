@@ -139,6 +139,11 @@ class Main_ViewController: UIViewController, MKMapViewDelegate {
         
         deleteCompletedGives(ref: ref)
         displayAllGivers(ref: ref, theMap: theMap)
+        let defaults = UserDefaults.standard
+        let loggedIn = defaults.bool(forKey: "loggedIn")
+        if(!loggedIn){
+            self.navigationItem.setRightBarButton(nil, animated: false)
+        }
     }
     
     
