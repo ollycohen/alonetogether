@@ -40,13 +40,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         guestBtn.layer.cornerRadius = 10.0
         let defaults = UserDefaults.standard
         loggedIn = defaults.bool(forKey: "loggedIn")
+        myHuman.name = defaults.string(forKey: "name") ?? "hUmAn"
         
     }
-    //START PRESSED
+//    START PRESSED
     @IBAction func startPressed(_ sender: Any) {
 //        print(city)
 //        print (country)
-        
+
         //add user to database
         ref.child("currently online").child(self.name.text ?? "nads").child("name").setValue(self.name.text ?? "nads")
         ref.child("currently online").child(self.name.text ?? "nads").child("city").setValue("STL")
@@ -100,7 +101,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         else {
             return
         }
-        destination.human = Human(name: "Human", city: self.myHuman.city, country: self.myHuman.country, user_coord: self.myHuman.user_coord, guest:false)
+        destination.human = Human(name: self.myHuman.name, city: self.myHuman.city, country: self.myHuman.country, user_coord: self.myHuman.user_coord, guest:false)
     }
     
     func checkForLogin(){

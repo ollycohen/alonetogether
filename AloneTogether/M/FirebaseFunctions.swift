@@ -11,46 +11,94 @@ import MapKit
 
 
 var connectionPath:MKPolyline = MKPolyline()
+var partnerKey:String = ""
+
+func startListening(ref: DatabaseReference, id:String, theMap: MKMapView, myHuman:Human){
+    ref.child("Active_Gives").child(id).observe(DataEventType.value, with: { (snapshot) in
+        guard let value = snapshot.value as? [String : AnyObject] else {
+//            print("Couldn't get a snapshot of the value")
+            return
+        }
+        let partner_lat = value["partner_latitude"] as? CLLocationDegrees ?? 0.0
+        let partner_long = value["partner_longitude"] as? CLLocationDegrees ?? 0.0
+        if partner_lat != 0.0 || partner_long != 0.0 {
+            let partner_coordinate = CLLocationCoordinate2DMake(partner_lat, partner_long)
+            connectionPath = MKPolyline(coordinates: [myHuman.user_coord, partner_coordinate], count: 2)
+            theMap.addOverlay(connectionPath)
+        }
+      })
+
+}
+
+func updatePairedValueInFirebase(ref: DatabaseReference, id: String, paired: Bool){
+    ref.child("Active_Gives").child(id).observeSingleEvent(of: .value, with: { (snapshot) in
+        // Get user value
+        guard var myValue = snapshot.value as? [String: Any] else {
+            return
+        }
+        
+        myValue["paired"] = paired
+        myValue["partner_coordinates"] =
+//        print("Deep into the matrix... / access database for myself:  ", myValue)
+        ref.child("Active_Gives").child(id).updateChildValues(myValue)
+        
+        // ...
+        }) { (error) in
+          print(error.localizedDescription)
+      }
+}
 
 // Let's connect two gives
-func connectAGive(ref:DatabaseReference, myKey:String, theMap:MKMapView, myHuman:Human){
+func connectAGive(ref:DatabaseReference, theMap:MKMapView, myHuman:Human){
     
-    var twoPinsToConnect:[CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
+    var sourceCoord:CLLocationCoordinate2D = CLLocationCoordinate2D()
+    var destCoord:CLLocationCoordinate2D = CLLocationCoordinate2D()
+    var devicePaired:Bool = false
+    guard let myId = myHuman.databaseKey.key else {
+        print("Failed to unwrap my key")
+        return
+    }
     ref.child("Active_Gives").observe(DataEventType.value, with: { (snapshot) in
 
         for give in snapshot.children.allObjects as! [DataSnapshot] {
             let thisKey = give.key
-            guard let value = give.value as? [String: Any] else {
+            guard var value = give.value as? [String: Any] else {
                 return
             }
-            let thisName = value["user"] as? String ?? "Hello"
+//            let thisName = value["user"] as? String ?? "Hello"
             let paired = value["paired"] as? Bool ?? true
-            if paired == false && thisKey != myKey {
-//                print("Connect these two pins")
-                for pin in theMap.annotations {
-                    if twoPinsToConnect.count > 1 {
-                        break
-                    }
-                    print("pin.title ", pin.title!! , ", myHuman ", myHuman.name, ", thisName ", thisName)
-                    if pin.title == myHuman.name || pin.title == thisName {
-                        twoPinsToConnect.append(pin.coordinate)
-                    }
-                }
+            if paired == false && thisKey != myId {
+                // Update partner's paired status in Firebase
+                value["paired"] = true
+                value["partner_latitude"] = myHuman.user_coord.latitude
+                value["partner_longitude"] = myHuman.user_coord.longitude
+                ref.child("Active_Gives").child(thisKey).updateChildValues(value)
+                partnerKey = thisKey
+                // Update my paired status in Firebase
+                updatePairedValueInFirebase(ref: ref, id: myId, paired: true)
+                devicePaired = true
+                sourceCoord = myHuman.user_coord
+                let destLat = value["latitude"] as? CLLocationDegrees ?? 0.0
+                let destLong = value["longitude"] as? CLLocationDegrees ?? 0.0
+                destCoord = CLLocationCoordinate2D(latitude: destLat, longitude: destLong)
+                
             }
-            
         }
-        
-//        print(twoPinsToConnect.count)
-        connectionPath = MKPolyline(coordinates:twoPinsToConnect,count:twoPinsToConnect.count)
-        theMap.addOverlay(connectionPath)
-        
+        if devicePaired == false {
+//            print("Started listening")
+            startListening(ref: ref, id: myId, theMap: theMap, myHuman: myHuman)
+        } else {
+//            print("Drawing the connection path: source coord ", sourceCoord, ", dest coord ", destCoord)
+            connectionPath = MKPolyline(coordinates:[sourceCoord,destCoord],count:2)
+            theMap.addOverlay(connectionPath)
+        }
         
     }) { (error) in
         print(error.localizedDescription)
     }
     
-
 }
+
 
 //Getter for the Connection Path
 func deleteConnectionPath(theMap:MKMapView){

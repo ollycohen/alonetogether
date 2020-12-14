@@ -36,7 +36,7 @@ protocol HashtagPopDelegate: class {
 
 
 
-class Main_ViewController: UIViewController {
+class Main_ViewController: UIViewController, MKMapViewDelegate {
     //SEGUE TO BODY POPOVER:
     @IBAction func presentActivitiesBtn(_ sender: Any) {
         //presentVC2()
@@ -71,6 +71,7 @@ class Main_ViewController: UIViewController {
     var currentKey:DatabaseReference = DatabaseReference()
     var progress = Progress()
     var connectionPath = MKPolyline()
+    var devicePaired:Bool = false
     
     //global variables 
     var human = Human()
@@ -102,8 +103,10 @@ class Main_ViewController: UIViewController {
     //VIEW DID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
-        print ( human.name+" says hello from " + human.city + " , " + human.country)
-        // Do any additional setup after loading the view.
+//        print ( human.name+" says hello from " + human.city + " , " + human.country)
+        // Set up the map delegate
+        theMap.delegate = self
+        changeMapZoom(theMap, theCenter: human.user_coord)
         
         //SOUND FROM https://www.babysleepsite.com/downloads/noise-only.mp3
         let path = Bundle.main.path(forResource: "whiteNoise2.wav", ofType:nil)!
@@ -195,11 +198,12 @@ class Main_ViewController: UIViewController {
         give_recieve_pressed = true
         //upload give user data
         // let timestamp = ServerValue.timestamp(),
-        let data = human.makeActiveGiveData(duration: timerSlider.value)
-        currentKey = ref.child("Active_Gives").childByAutoId()
-        currentKey.setValue(data)
+        let data = human.makeActiveGiveData(duration: timerSlider.value, paired: false)
+        human.databaseKey = ref.child("Active_Gives").childByAutoId()
+        human.databaseKey.setValue(data)
         
-        connectAGive(ref: ref, myKey: currentKey.key ?? "None", theMap: theMap, myHuman: human)
+        // After device is connected, update Active Give data in the firebase
+        connectAGive(ref: ref, theMap: theMap, myHuman: human)
         print("give pressed")
         //deleteCompletedGives(ref: ref)
        
@@ -278,10 +282,12 @@ class Main_ViewController: UIViewController {
                 givebtn.isHidden = false
                 progressBar.isHidden = true
                 
-//                print("Should delete this key: ", currentKey)
-                currentKey.removeValue()
+//                print("Should delete this key: ", human.databaseKey)
+                human.databaseKey.removeValue()
                 displayAllGivers(ref: ref, theMap: theMap)
-                theMap.removeOverlay(connectionPath)
+                print("The map overlays, ", theMap.overlays)
+                theMap.removeOverlays(theMap.overlays)
+                changeMapZoom(theMap, theCenter: human.user_coord)
                 
                 return
             }
@@ -327,16 +333,28 @@ class Main_ViewController: UIViewController {
     }
     
     //https://stackoverflow.com/questions/49417144/how-do-i-create-a-line-polyline-between-location-points-in-swift
-//    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
-//           if overlay is MKPolyline {
-//               let polylineRenderer = MKPolylineRenderer(overlay: overlay)
-//               polylineRenderer.strokeColor = UIColor.blue
-//               polylineRenderer.lineWidth = 5
-//               return polylineRenderer
-//           }
-//
-//           return nil
-//       }
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+           if let overlay = overlay as? MKPolyline {
+               let polylineRenderer = MKPolylineRenderer(overlay: overlay)
+               polylineRenderer.strokeColor = UIColor.blue
+               polylineRenderer.lineWidth = 5
+               changeMapZoom(mapView, theCenter: overlay.coordinate)
+//               let region = MKCoordinateRegion(center: overlay.coordinate, latitudinalMeters: CLLocationDistance(exactly: 17000000)!, longitudinalMeters: CLLocationDistance(exactly: 17000000)!)
+//               mapView.setRegion(mapView.regionThatFits(region), animated: true)
+               return polylineRenderer
+            
+            }
+       
+            print("Overlay is not MKPolyline")
+            return MKPolylineRenderer(overlay: overlay)
+       }
+    
+    func changeMapZoom(_ mapView: MKMapView, theCenter: CLLocationCoordinate2D){
+        let region = MKCoordinateRegion(center: theCenter, latitudinalMeters: CLLocationDistance(exactly: 17000000)!, longitudinalMeters: CLLocationDistance(exactly: 17000000)!)
+        mapView.setRegion(mapView.regionThatFits(region), animated: true)
+    }
+    
+    
     
     //RECIEVE PRESSED
 //    @IBAction func recievePressed(_ sender: Any) {

@@ -65,6 +65,7 @@ class RegisterUserViewController: UIViewController,CLLocationManagerDelegate {
                 let defaults = UserDefaults.standard
                 defaults.set(true, forKey: "loggedIn")
                 defaults.set(result?.user.uid ?? "Error. No user ID found.", forKey: "userID")
+                defaults.set(fN , forKey: "name")
                 
                 userAdded = true
                 ///PERFRORM SEGUE

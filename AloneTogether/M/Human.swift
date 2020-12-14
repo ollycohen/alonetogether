@@ -6,7 +6,7 @@
 //  Copyright © 2020 Oliver K Cohen. All rights reserved.
 //
 
-import Foundation; import MapKit
+import Foundation; import MapKit; import FirebaseDatabase
 
 class Human {
     
@@ -16,6 +16,7 @@ class Human {
     var userId: Any
     var user_coord:CLLocationCoordinate2D
     var guest : Bool
+    var databaseKey: DatabaseReference
     
     init(){
         name = ""
@@ -24,6 +25,7 @@ class Human {
         userId = ""
         user_coord = CLLocationCoordinate2D()
         guest = false
+        databaseKey = DatabaseReference()
     }
     
     init(name:String, city:String, country:String, user_coord:CLLocationCoordinate2D, guest:Bool){
@@ -33,11 +35,12 @@ class Human {
         self.user_coord = user_coord
         userId = ""
         self.guest = guest
+        self.databaseKey = DatabaseReference()
     }
     
     // Still need to add the activity here
-    func makeActiveGiveData(duration: Float)->[String:Any]{
-        let data = ["time": getCurrentDate(), "duration": duration, "user": name,"city": city, "country": country,"uid":userId,"guest":guest,"latitude":user_coord.latitude,"longitude":user_coord.longitude,"paired":false] as [String : Any]
+    func makeActiveGiveData(duration: Float, paired: Bool)->[String:Any]{
+        let data = ["time": getCurrentDate(), "duration": duration, "user": name,"city": city, "country": country,"uid":userId,"guest":guest,"latitude":user_coord.latitude,"longitude":user_coord.longitude,"paired":paired] as [String : Any]
         return data
     }
     
