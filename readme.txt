@@ -7,3 +7,11 @@ How to run the app:
 5. To really see the power, run on a selected device AND simulator at the same time, and start meditating on both.
 
 Enjoy!!
+
+Contributors:
+Seth Ledford - Backend and App logic
+Benjamin Faber - Frontend and Segues
+Olly Cohen - Maps and Backend
+Nadie Myrie - Backend and Firebase
+
+App Idea: David Marchant 
