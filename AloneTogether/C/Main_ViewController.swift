@@ -79,6 +79,11 @@ class Main_ViewController: UIViewController, MKMapViewDelegate {
     var give_recieve_pressed : Bool = false;
     var secondsLeft = 0
     var minutesLeft = 0
+    var startDuration = 0
+    var startActivity = ""
+    let date = Date()
+    var theTimer:Timer?
+    let formatter = DateFormatter()
     //var userFirstName:String = ""
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var timerSlider: UISlider!
@@ -134,7 +139,6 @@ class Main_ViewController: UIViewController, MKMapViewDelegate {
         
         deleteCompletedGives(ref: ref)
         displayAllGivers(ref: ref, theMap: theMap)
-        
     }
     
     
@@ -176,6 +180,8 @@ class Main_ViewController: UIViewController, MKMapViewDelegate {
         print("give pressed")
         
         minutesLeft = Int(timerSlider.value)
+        startActivity = bodybtn.title(for: .normal) ?? "error in startActivity var assignment"
+        startDuration = minutesLeft
         secondsLeft = 0
         progress = Progress(totalUnitCount: Int64(timerSlider.value * 60))
         timerSlider.isHidden = true
@@ -191,7 +197,7 @@ class Main_ViewController: UIViewController, MKMapViewDelegate {
     
     func runTimer(){
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true){ [self] (timer) in
-            
+            theTimer = timer
             guard progress.isFinished == false else {
                 timer.invalidate()
                 
@@ -207,6 +213,13 @@ class Main_ViewController: UIViewController, MKMapViewDelegate {
 //                print("The map overlays, ", theMap.overlays)
                 theMap.removeOverlays(theMap.overlays)
                 changeMapZoom(theMap, theCenter: human.user_coord)
+                
+                let defaults = UserDefaults.standard
+                let userID = defaults.string(forKey: "userID") ?? "error!"
+                let ref = Database.database().reference()
+                formatter.dateFormat = "MMM dd, yyyy"
+                let dateString = formatter.string(from: date)
+                ref.child("users").child(userID).child("completedSessions").childByAutoId().setValue(["Type": startActivity, "Date": dateString, "Duration": startDuration])
                 
                 return
             }
@@ -237,6 +250,11 @@ class Main_ViewController: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func stopTimer(_ sender: Any) {
+        guard let unwrapped = theTimer else{
+            print("issue unwrapping timer.")
+            return
+        }
+        unwrapped.invalidate()
         minutesLeft = Int(timerSlider.value)
         secondsLeft = -1
         progress = Progress(totalUnitCount: 0)

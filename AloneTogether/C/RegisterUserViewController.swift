@@ -62,7 +62,7 @@ class RegisterUserViewController: UIViewController,CLLocationManagerDelegate {
                 print("assume user added")
                 var ref: DatabaseReference!
 
-                 ref = Database.database().reference()
+                ref = Database.database().reference()
                 ref.child("users").child((result?.user.uid)! as String).setValue(["email":em, "firstName": fN, "lastName":lN,"phone":ph,"city":self.rHuman.city,"country":self.rHuman.country,"uid":result?.user.uid as Any,"TotalMindfulTime":0,"TotalGives":0,"TotalRecieves":0,"guest":false,"latitude":rHuman.user_coord.latitude, "longitude":rHuman.user_coord.longitude])
                 
                 let defaults = UserDefaults.standard

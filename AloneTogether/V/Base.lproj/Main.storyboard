@@ -334,7 +334,7 @@
                                     <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yRg-zz-t8c">
                                         <rect key="frame" x="0.0" y="60" width="414" height="0.0"/>
                                     </progressView>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minValue="0.0" maxValue="60" translatesAutoresizingMaskIntoConstraints="NO" id="6eD-J2-zPC">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minValue="1" maxValue="60" translatesAutoresizingMaskIntoConstraints="NO" id="6eD-J2-zPC">
                                         <rect key="frame" x="-2" y="60" width="418" height="61.5"/>
                                         <color key="tintColor" systemColor="systemTealColor"/>
                                         <color key="thumbTintColor" systemColor="systemTealColor"/>
@@ -634,6 +634,9 @@
                                                     <segment title="All"/>
                                                 </segments>
                                                 <color key="selectedSegmentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="timePeriodChanged:" destination="ah2-Zj-RhX" eventType="valueChanged" id="BZk-o0-5Gj"/>
+                                                </connections>
                                             </segmentedControl>
                                         </subviews>
                                     </stackView>
@@ -685,6 +688,7 @@
                         <outlet property="mindfullnessTimeLabel" destination="5QL-1k-xqj" id="rsA-3t-VZf"/>
                         <outlet property="tableView" destination="Wh2-p0-SvK" id="kH4-OG-4vq"/>
                         <outlet property="timePeriodControl" destination="nNB-Lo-Eb9" id="OxK-YQ-rRk"/>
+                        <outlet property="timePeriodSelector" destination="nNB-Lo-Eb9" id="uU0-z7-dK2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3E6-DI-FSj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

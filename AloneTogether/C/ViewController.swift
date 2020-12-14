@@ -40,16 +40,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         let defaults = UserDefaults.standard
         loggedIn = defaults.bool(forKey: "loggedIn")
         myHuman.name = defaults.string(forKey: "name") ?? "hUmAn"
-        
     }
+    
 //    START PRESSED
     @IBAction func startPressed(_ sender: Any) {
         //add user to database
         ref.child("currently online").child(self.name.text ?? "nads").child("name").setValue(self.name.text ?? "nads")
         ref.child("currently online").child(self.name.text ?? "nads").child("city").setValue("STL")
         ref.child("currently online").child(self.name.text ?? "nads").child("country").setValue(myHuman.country )
-
     }
+    
     //ACCESS LOCATION DATA
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0];
