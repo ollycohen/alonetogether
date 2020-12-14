@@ -41,13 +41,12 @@ class SignIn_updatedViewController: UIViewController, CLLocationManagerDelegate 
     }
     
     func login() -> Bool {
-        var logHumanIn:Bool = false
         guard let myEmail = email.text, !myEmail.isEmpty,
               let myPw = pw.text, !myPw.isEmpty
         else{
             print("missing field")
-            logHumanIn = false
-            return logHumanIn
+            loginSuccess = false
+            return loginSuccess
         }
         
         print("OVer here B0!!")
@@ -55,8 +54,7 @@ class SignIn_updatedViewController: UIViewController, CLLocationManagerDelegate 
        
         Auth.auth().signIn(withEmail: myEmail, password: myPw,completion :{result,error in
             if error == nil{
-                logHumanIn = true;
-                
+                self.loginSuccess = true
                 print("user logged in")
                 
                 
@@ -80,17 +78,18 @@ class SignIn_updatedViewController: UIViewController, CLLocationManagerDelegate 
                     ref.child("city").setValue(self.sHuman.city)
                     ref.child("latitude").setValue(self.sHuman.user_coord.latitude)
                     ref.child("longitude").setValue(self.sHuman.user_coord.longitude)
-                    //self.performSegue(withIdentifier: "upSigntoMain", sender: self)
+//                    print("Performing segue! Check my latitude", self.sHuman.user_coord.latitude)
+                    self.performSegue(withIdentifier: "upSigntoMain", sender: self)
                 })
             }
             else{
                 print("something went wrong when logging in user");
-                logHumanIn = false
+                self.loginSuccess = false
                 print(error as Any)
             }
             
         })
-        return logHumanIn
+        return loginSuccess
     }
  
 
@@ -121,14 +120,7 @@ class SignIn_updatedViewController: UIViewController, CLLocationManagerDelegate 
                         // Place details
                         guard let placeMark = placemarks?.first else { return }
 
-                        // Location name
-                        if let locationName = placeMark.location {
-                           // print(locationName)
-                        }
-                        // Street address
-                        if let street = placeMark.thoroughfare {
-                           // print(street)
-                        }
+    
                         // City
                         if let myCity = placeMark.subAdministrativeArea {
                             self.sHuman.city = myCity
@@ -140,16 +132,13 @@ class SignIn_updatedViewController: UIViewController, CLLocationManagerDelegate 
                             self.sHuman.country = zip
                             //print(self.country)
                         }
-                        // Country
-                        if let myCountry = placeMark.country {
-                            //print(myCountry)
-                        }
             
                 })
-        
-        if (loginSuccess){
-            self.performSegue(withIdentifier: "upSigntoMain", sender: self)
-        }
+//        print("Checking for loginSuccess")
+//        if (loginSuccess){
+//            print("We have loginSuccess!")
+//            self.performSegue(withIdentifier: "upSigntoMain", sender: self)
+//        }
         
     }
    

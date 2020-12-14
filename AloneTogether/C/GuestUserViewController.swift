@@ -84,14 +84,6 @@ class GuestUserViewController: UIViewController, CLLocationManagerDelegate {
                         // Place details
                         guard let placeMark = placemarks?.first else { return }
 
-                        // Location name
-                        if let locationName = placeMark.location {
-                           // print(locationName)
-                        }
-                        // Street address
-                        if let street = placeMark.thoroughfare {
-                           // print(street)
-                        }
                         // City
                         if let myCity = placeMark.subAdministrativeArea {
                             self.guestHuman.city = myCity
@@ -101,10 +93,6 @@ class GuestUserViewController: UIViewController, CLLocationManagerDelegate {
                         if let zip = placeMark.isoCountryCode {
                             self.guestHuman.country = zip
                             //print(self.country)
-                        }
-                        // Country
-                        if let myCountry = placeMark.country {
-                            //print(myCountry)
                         }
                 })
 //

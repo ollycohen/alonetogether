@@ -53,6 +53,11 @@ class Main_ViewController: UIViewController, MKMapViewDelegate {
             let destination = segue.destination as! HashtagsViewController
             destination.delegate = self
         }
+        if(segue.identifier == "unwindToWelcome"){
+            let destination = segue.destination as! ViewController
+            destination.loggedIn = false
+        }
+        
     
     }
     
@@ -191,11 +196,11 @@ class Main_ViewController: UIViewController, MKMapViewDelegate {
     //GIVE PRESSED
     @IBAction func givePressed(_ sender: Any) {
 //        let ref = Database.database().reference()
-        if give_recieve_pressed { //need to update after 24 hours
-            //button already pushed
-            return
-        }
-        give_recieve_pressed = true
+//        if give_recieve_pressed { //need to update after 24 hours
+//            //button already pushed
+//            return
+//        }
+//        give_recieve_pressed = true
         //upload give user data
         // let timestamp = ServerValue.timestamp(),
         let data = human.makeActiveGiveData(duration: timerSlider.value, paired: false)
@@ -369,6 +374,16 @@ class Main_ViewController: UIViewController, MKMapViewDelegate {
     func changeMapZoom(_ mapView: MKMapView, theCenter: CLLocationCoordinate2D){
         let region = MKCoordinateRegion(center: theCenter, latitudinalMeters: CLLocationDistance(exactly: 17000000)!, longitudinalMeters: CLLocationDistance(exactly: 17000000)!)
         mapView.setRegion(mapView.regionThatFits(region), animated: true)
+    }
+    
+    @IBAction func signOut(_ sender: Any) {
+        // Remove Key-Value Pair
+        let defaults = UserDefaults.standard
+        defaults.set(false, forKey: "loggedIn")
+        defaults.removeObject(forKey: "userID")
+        defaults.removeObject(forKey: "name")
+        self.performSegue(withIdentifier: "unwindToWelcome", sender: self)
+        
     }
     
     

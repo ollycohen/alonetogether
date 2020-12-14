@@ -26,9 +26,11 @@ class RegisterUserViewController: UIViewController,CLLocationManagerDelegate {
     
     @IBOutlet weak var pw_0: UITextField!
     
+    @IBOutlet weak var passwordWarning: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        passwordWarning.isHidden = true
         //key board -> tap view escape -nads
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
@@ -52,6 +54,7 @@ class RegisterUserViewController: UIViewController,CLLocationManagerDelegate {
         }
         Auth.auth().createUser(withEmail: em, password:pw) { [self] (result, err) in
             if err != nil{
+                passwordWarning.isHidden = false
                 print("something went wrong when registering user");
                 print(err as Any)
             }
@@ -101,14 +104,6 @@ class RegisterUserViewController: UIViewController,CLLocationManagerDelegate {
                         // Place details
                         guard let placeMark = placemarks?.first else { return }
 
-                        // Location name
-                        if let locationName = placeMark.location {
-                           // print(locationName)
-                        }
-                        // Street address
-                        if let street = placeMark.thoroughfare {
-                           // print(street)
-                        }
                         // City
                         if let myCity = placeMark.subAdministrativeArea {
                             self.rHuman.city = myCity
@@ -119,10 +114,6 @@ class RegisterUserViewController: UIViewController,CLLocationManagerDelegate {
                         if let zip = placeMark.isoCountryCode {
                             self.rHuman.country = zip
                             //print(self.country)
-                        }
-                        // Country
-                        if let myCountry = placeMark.country {
-                            //print(myCountry)
                         }
             
                 })

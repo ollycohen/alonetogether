@@ -6,7 +6,6 @@
 //  Copyright © 2020 Oliver K Cohen. All rights reserved.
 //
 
-//This whole file seems messed up - I dont know why these outlets are here, but I dont want to mess anything up - Ben
 
 import UIKit
 //WELCOME PAGE
@@ -67,14 +66,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
                         // Place details
                         guard let placeMark = placemarks?.first else { return }
 
-                        // Location name
-                        if let locationName = placeMark.location {
-                            // print(locationName)
-                        }
-                        // Street address
-                        if let street = placeMark.thoroughfare {
-                           // print(street)
-                        }
                         // City
                         if let myCity = placeMark.subAdministrativeArea {
                             self.myHuman.city = myCity
@@ -85,10 +76,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
                         if let zip = placeMark.isoCountryCode {
                             self.myHuman.country = zip
                             //print(self.country)
-                        }
-                        // Country
-                        if let myCountry = placeMark.country {
-                            //print(myCountry)
                         }
             
                 })
@@ -121,6 +108,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
           super.viewWillDisappear(animated)
           showNavigationBar(animated: animated)
       }
+    
+    @IBAction func unwindToViewController(_ unwindSegue: UIStoryboardSegue) {
+//        let sourceViewController = unwindSegue.source
+        // Use data from the view controller which initiated the unwind segue
+    }
+    
     
 }
 
