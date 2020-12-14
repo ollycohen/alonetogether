@@ -32,10 +32,6 @@ protocol HashtagPopDelegate: class {
     }
 
 
-
-
-
-
 class Main_ViewController: UIViewController, MKMapViewDelegate {
     //SEGUE TO BODY POPOVER:
     @IBAction func presentActivitiesBtn(_ sender: Any) {
@@ -127,41 +123,17 @@ class Main_ViewController: UIViewController, MKMapViewDelegate {
     
     
     override func viewWillAppear(_ animated: Bool) {
-//        mindbtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
         bodybtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
         causebtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
         givebtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
         stopBtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
-        //receivebtn.titleLabel?.doGlowAnimation(withColor: UIColor.yellow)
         self.navigationItem.setHidesBackButton(true, animated: false)
-        // Set "Title" at the top of the view to either say "Welcome, {Name}" or "Welcome, Guest".
-        
-        let defaults = UserDefaults.standard
-        let loggedIn = defaults.bool(forKey: "loggedIn")
-        let userID = defaults.string(forKey: "userID")
+        // Set "Title" at the top of the view to either say "Welcome, {Name}"
         timerSlider.value = 30
-        //print("\nMAIN VIEW APPEARED\n")
-        
-        if (loggedIn){
-            ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-              // Get user value
-                    
-            let value = snapshot.value as? NSDictionary
-            self.welcomeLabel.text = "Welcome, \(value?["firstName"] as? String ?? "")"
-              // ...
-              }) { (error) in
-                print(error.localizedDescription)
-            }
-
-        }
-        else{
-            self.welcomeLabel.text = "Welcome, Guest"
-        }
+        self.welcomeLabel.text = "Welcome, \(self.human.name)"
         
         deleteCompletedGives(ref: ref)
         displayAllGivers(ref: ref, theMap: theMap)
-    
-        //welcomeLabel.text = "Welcome, \(userFirstName)"
         
     }
     
@@ -195,14 +167,6 @@ class Main_ViewController: UIViewController, MKMapViewDelegate {
     //GIVE PRESSED
     //GIVE PRESSED
     @IBAction func givePressed(_ sender: Any) {
-//        let ref = Database.database().reference()
-//        if give_recieve_pressed { //need to update after 24 hours
-//            //button already pushed
-//            return
-//        }
-//        give_recieve_pressed = true
-        //upload give user data
-        // let timestamp = ServerValue.timestamp(),
         let data = human.makeActiveGiveData(duration: timerSlider.value, paired: false)
         human.databaseKey = ref.child("Active_Gives").childByAutoId()
         human.databaseKey.setValue(data)
@@ -210,58 +174,7 @@ class Main_ViewController: UIViewController, MKMapViewDelegate {
         // After device is connected, update Active Give data in the firebase
         connectAGive(ref: ref, theMap: theMap, myHuman: human)
         print("give pressed")
-        //deleteCompletedGives(ref: ref)
-       
         
-        
-        //query for first Active Recieved
-//        var recieveRef = Database.database().reference(withPath: "Active_Recieves").queryOrdered(byChild: "time").queryLimited(toFirst: 1).observeSingleEvent(of: .value) { (snapshot) in
-//            
-//            if(snapshot.value == nil ){
-//                print("no recieves exist")
-//                return
-//            }
-//            
-//            var dict: NSDictionary = ["":""]
-//            for case let childSnap as DataSnapshot in snapshot.children {
-//                dict = childSnap.value as? NSDictionary ?? ["":""]
-//                self.other_person.request_id = childSnap.key
-//                if(childSnap.key == nil){
-//                    
-//                    return
-//                }
-//            }
-//            //print(dict["user"] as Any)
-//            self.other_person.other_user = dict["user"] as? String ?? "nil"
-//            self.other_person.other_uid = dict["uid"]as? String ?? "nil"
-//            self.other_person.other_city = dict["city"] as? String ?? "nil"
-//            self.other_person.other_country = dict["country"] as? String ?? "nil"
-//            self.other_person.other_guest = (dict["guest"] != nil)
-//           // print(dict)
-//            
-//            print(self.other_person.request_id)
-//            //delete recieve and give pair
-//            //print(snapshot)
-//
-//            //print(snapshot.key)
-//            //print(snapshot.value)
-//            if(self.other_person.request_id != ""){
-//                print("Giving Meditation/ Healing to " + self.other_person.other_user + ", from " + self.other_person.other_city + ", " + self.other_person.other_country)
-//                print("HEY LISTEN OVER HERE B")
-//                ref.child("Active_Recieves").child(self.other_person.request_id).setValue(nil)
-//                
-//                giver_request_id.setValue(nil)
-//                self.give_recieve_pressed = false
-//                
-//            }
-//            
-//            //print(self.other_person.request_id)
-//            
-//            
-//            //if the give/ recieve are registered users, update their stats
-//            return
-//            
-//        }
         minutesLeft = Int(timerSlider.value)
         secondsLeft = 0
         progress = Progress(totalUnitCount: Int64(timerSlider.value * 60))
@@ -385,68 +298,6 @@ class Main_ViewController: UIViewController, MKMapViewDelegate {
         self.performSegue(withIdentifier: "unwindToWelcome", sender: self)
         
     }
-    
-    
-    
-    //RECIEVE PRESSED
-//    @IBAction func recievePressed(_ sender: Any) {
-//        var ref = Database.database().reference()
-//        if give_recieve_pressed {
-//            //button already pushed
-//            return
-//        }
-//        give_recieve_pressed = true
-//        let data = ["time": ServerValue.timestamp(), "user": name,"city": city, "country": country,"uid":userId,"guest":guest] as [String : Any]
-//        var reciever_request_id = ref.child("Active_Recieves").childByAutoId()
-//
-//        reciever_request_id.setValue(data)
-//        print("recieved pressed")
-//
-//        //query for first Active Give
-//        var giveRef = Database.database().reference(withPath: "Active_Gives").queryOrdered(byChild: "time").queryLimited(toFirst: 1).observeSingleEvent(of: .value) { (snapshot) in
-//            //var result = snapshot
-//
-//            var dict: NSDictionary = ["":""]
-//            for case let childSnap as DataSnapshot in snapshot.children {
-//                dict = childSnap.value as? NSDictionary ?? ["":""]
-//                self.other_person.request_id = childSnap.key
-//                if(childSnap.key == nil){
-//
-//                    return
-//                }
-//            }
-//            //print(dict["user"] as Any)
-//            self.other_person.other_user = dict["user"] as? String ?? "nil"
-//            self.other_person.other_uid = dict["uid"]as? String ?? "nil"
-//            self.other_person.other_city = dict["city"] as? String ?? "nil"
-//            self.other_person.other_country = dict["country"] as? String ?? "nil"
-//            self.other_person.other_guest = (dict["guest"] != nil)
-//           // print(dict)
-//
-//            //print(self.other_person)
-//            //delete recieve and give pair
-//            //print(snapshot)
-//
-//            //print(snapshot.key)
-//            //print(snapshot.value)
-//            if(self.other_person.request_id != ""){
-//                print("Recieving Meditation/ Healing from " + self.other_person.other_user + ", in " + self.other_person.other_city + ", " + self.other_person.other_country)
-//                print("HEY LISTEN OVER HERE B")
-//                print(self.other_person.request_id)
-//                ref.child("Active_Gives").child(self.other_person.request_id).setValue(nil)
-//                reciever_request_id.setValue(nil)
-//                self.give_recieve_pressed = false
-//            }
-//
-//            //print(self.other_person.request_id)
-//
-//
-//            //if the give/ recieve are registered users, update their stats
-//            return
-//
-//        }
-//
-//    }
     
     /*
     // MARK: - Navigation

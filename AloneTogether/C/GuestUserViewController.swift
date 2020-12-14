@@ -14,9 +14,6 @@ class GuestUserViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     var sendSegue:Bool = false
     @IBOutlet weak var gueset_name: UITextField!
-//    var city: String = ""
-//    var country : String = ""
-//    var guest_coord = CLLocationCoordinate2D()
     var guestHuman = Human()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,10 +61,6 @@ class GuestUserViewController: UIViewController, CLLocationManagerDelegate {
         else {
             return
         }
-        /*if(loginSuccess == false){
-            return
-        }
-         */
         destination.human = Human(name: self.gueset_name.text ?? "guest", city: guestHuman.city, country: guestHuman.country, user_coord: guestHuman.user_coord, guest: true)
     }
     
@@ -95,11 +88,7 @@ class GuestUserViewController: UIViewController, CLLocationManagerDelegate {
                             //print(self.country)
                         }
                 })
-//
-//        if(sendSegue){
-//            ///PERFRORM SEGUE
-//            self.performSegue(withIdentifier: "GuesttoMain", sender: self)
-//        }
+        
     }
 
 }

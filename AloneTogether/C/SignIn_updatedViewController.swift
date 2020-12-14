@@ -134,11 +134,6 @@ class SignIn_updatedViewController: UIViewController, CLLocationManagerDelegate 
                         }
             
                 })
-//        print("Checking for loginSuccess")
-//        if (loginSuccess){
-//            print("We have loginSuccess!")
-//            self.performSegue(withIdentifier: "upSigntoMain", sender: self)
-//        }
         
     }
    

@@ -115,13 +115,7 @@ class RegisterUserViewController: UIViewController,CLLocationManagerDelegate {
                             self.rHuman.country = zip
                             //print(self.country)
                         }
-            
                 })
-        
-//        if (userAdded){
-//            ///PERFRORM SEGUE
-//            self.performSegue(withIdentifier: "RegtoMain", sender: self)
-//         }
     }
 
     /*

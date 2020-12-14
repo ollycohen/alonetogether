@@ -44,9 +44,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     }
 //    START PRESSED
     @IBAction func startPressed(_ sender: Any) {
-//        print(city)
-//        print (country)
-
         //add user to database
         ref.child("currently online").child(self.name.text ?? "nads").child("name").setValue(self.name.text ?? "nads")
         ref.child("currently online").child(self.name.text ?? "nads").child("city").setValue("STL")
