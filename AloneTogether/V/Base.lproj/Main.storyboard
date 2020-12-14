@@ -338,15 +338,18 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="FT4-8v-FnO">
                                         <rect key="frame" x="0.0" y="120.5" width="414" height="60.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k4Q-oB-OA4">
-                                                <rect key="frame" x="0.0" y="0.0" width="138" height="60.5"/>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k4Q-oB-OA4">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="60.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <state key="normal" title="Stop">
                                                     <color key="titleColor" systemColor="systemTealColor"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="stopTimer:" destination="VfE-Kb-XuF" eventType="touchUpInside" id="2W9-h2-HVF"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ltw-Jj-OUo" userLabel="give_btn">
-                                                <rect key="frame" x="138" y="0.0" width="138" height="60.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="207" height="60.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <state key="normal" title="Start">
                                                     <color key="titleColor" systemColor="systemTealColor"/>
@@ -357,7 +360,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQa-vS-IsE">
-                                                <rect key="frame" x="276" y="0.0" width="138" height="60.5"/>
+                                                <rect key="frame" x="207" y="0.0" width="207" height="60.5"/>
                                                 <color key="tintColor" systemColor="systemTealColor"/>
                                                 <state key="normal">
                                                     <color key="titleColor" systemColor="systemTealColor"/>

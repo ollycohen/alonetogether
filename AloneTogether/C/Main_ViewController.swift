@@ -262,6 +262,7 @@ class Main_ViewController: UIViewController, MKMapViewDelegate {
         progress = Progress(totalUnitCount: Int64(timerSlider.value * 60))
         timerSlider.isHidden = true
         givebtn.isHidden = true
+        stopBtn.isHidden = false
         progressBar.isHidden = false
         
         print("total unit count: \(Int64(timerSlider.value * 60))")
@@ -285,7 +286,7 @@ class Main_ViewController: UIViewController, MKMapViewDelegate {
 //                print("Should delete this key: ", human.databaseKey)
                 human.databaseKey.removeValue()
                 displayAllGivers(ref: ref, theMap: theMap)
-                print("The map overlays, ", theMap.overlays)
+//                print("The map overlays, ", theMap.overlays)
                 theMap.removeOverlays(theMap.overlays)
                 changeMapZoom(theMap, theCenter: human.user_coord)
                 
@@ -299,6 +300,8 @@ class Main_ViewController: UIViewController, MKMapViewDelegate {
             if(secondsLeft == 0){
                 secondsLeft = 59
                 minutesLeft -= 1
+            } else if(secondsLeft == -1){
+                secondsLeft = 0
             }
             else{
                 secondsLeft -= 1
@@ -313,6 +316,20 @@ class Main_ViewController: UIViewController, MKMapViewDelegate {
             
             
         }
+    }
+    
+    @IBAction func stopTimer(_ sender: Any) {
+        minutesLeft = Int(timerSlider.value)
+        secondsLeft = -1
+        progress = Progress(totalUnitCount: 0)
+        timerSlider.isHidden = false
+        givebtn.isHidden = false
+        progressBar.isHidden = true
+        stopBtn.isHidden = true
+        human.databaseKey.removeValue()
+        displayAllGivers(ref: ref, theMap: theMap)
+        theMap.removeOverlays(theMap.overlays)
+        changeMapZoom(theMap, theCenter: human.user_coord)
     }
     
     //https://www.hackingwithswift.com/example-code/location/how-to-add-annotations-to-mkmapview-using-mkpointannotation-and-mkpinannotationview
