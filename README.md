@@ -12,9 +12,9 @@ https://youtu.be/aip1zwyqDrI
 
 
 ## Contributors
-Seth Ledford - Backend and App logic
-Benjamin Faber - Frontend and Segues
-Nadie Myrie - Backend and Firebase
-Olly Cohen - Maps and Backend
+Seth Ledford - Backend and App logic  
+Benjamin Faber - Frontend and Segues  
+Nadie Myrie - Backend and Firebase  
+Olly Cohen - Maps and Backend  
 
 **App Idea: David Marchant**
