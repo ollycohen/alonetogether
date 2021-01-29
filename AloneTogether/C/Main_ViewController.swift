@@ -113,6 +113,7 @@ class Main_ViewController: UIViewController, MKMapViewDelegate {
         // Set up the map delegate
         theMap.delegate = self
         changeMapZoom(theMap, theCenter: human.user_coord)
+//        updateMapToShowGlobe(location: human.user_coord)
         
         //SOUND FROM https://www.babysleepsite.com/downloads/noise-only.mp3
         let path = Bundle.main.path(forResource: "whiteNoise2.wav", ofType:nil)!
@@ -308,7 +309,7 @@ class Main_ViewController: UIViewController, MKMapViewDelegate {
        }
     
     func changeMapZoom(_ mapView: MKMapView, theCenter: CLLocationCoordinate2D){
-        let region = MKCoordinateRegion(center: theCenter, latitudinalMeters: CLLocationDistance(exactly: 17000000)!, longitudinalMeters: CLLocationDistance(exactly: 17000000)!)
+        let region = MKCoordinateRegion(center: theCenter, latitudinalMeters: CLLocationDistance(exactly: 19500000)!, longitudinalMeters: CLLocationDistance(exactly: 19500000)!)
         mapView.setRegion(mapView.regionThatFits(region), animated: true)
     }
     
@@ -321,6 +322,16 @@ class Main_ViewController: UIViewController, MKMapViewDelegate {
         self.performSegue(withIdentifier: "unwindToWelcome", sender: self)
         
     }
+    
+    // https://stackoverflow.com/questions/48370852/how-to-display-entire-globe-in-mkmapview?noredirect=1&lq=1
+    // MARK: Snippet to show full globe in 3d view
+//    private func updateMapToShowGlobe(location :CLLocationCoordinate2D) {
+//        let span = MKCoordinateSpan(latitudeDelta: 130, longitudeDelta: 130)
+//        let region = MKCoordinateRegion(center: location, span: span)
+//        if( region.center.latitude > -90 && region.center.latitude < 90 && region.center.longitude > -180 && region.center.longitude < 180 ){
+//            mapView.setRegion(region, animated: true)
+//        }
+//    }
     
     /*
     // MARK: - Navigation

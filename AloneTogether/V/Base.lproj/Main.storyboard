@@ -397,8 +397,8 @@
                                     <segue destination="QRW-Ot-a3j" kind="presentation" identifier="Load HashtagVC" id="s61-Z5-W3T"/>
                                 </connections>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satelliteFlyover" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P7A-1K-KQa">
-                                <rect key="frame" x="20" y="188" width="374" height="444"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" mapType="satelliteFlyover" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P7A-1K-KQa">
+                                <rect key="frame" x="10" y="188" width="394" height="444"/>
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uoP-Mr-aZB"/>
@@ -406,13 +406,13 @@
                         <constraints>
                             <constraint firstItem="J4M-gh-ziI" firstAttribute="top" secondItem="J1z-oo-z9l" secondAttribute="bottom" id="1aP-qh-6nm"/>
                             <constraint firstItem="ZDU-my-748" firstAttribute="leading" secondItem="uoP-Mr-aZB" secondAttribute="leading" id="5aZ-rO-SxL"/>
-                            <constraint firstItem="uoP-Mr-aZB" firstAttribute="trailing" secondItem="P7A-1K-KQa" secondAttribute="trailing" constant="20" id="73x-VP-EFx"/>
-                            <constraint firstItem="P7A-1K-KQa" firstAttribute="leading" secondItem="uoP-Mr-aZB" secondAttribute="leading" constant="20" id="8hS-Wq-QtY"/>
+                            <constraint firstItem="P7A-1K-KQa" firstAttribute="leading" secondItem="uoP-Mr-aZB" secondAttribute="leading" constant="10" id="FeB-oK-8QO"/>
                             <constraint firstAttribute="bottom" secondItem="ZDU-my-748" secondAttribute="bottom" id="K5F-Ir-ikT"/>
                             <constraint firstItem="FCj-Jx-THU" firstAttribute="height" secondItem="uoP-Mr-aZB" secondAttribute="height" multiplier="0.25" priority="999" id="PPJ-M3-J9M"/>
                             <constraint firstItem="J1z-oo-z9l" firstAttribute="leading" secondItem="uoP-Mr-aZB" secondAttribute="leading" id="PWw-WZ-emR"/>
                             <constraint firstItem="ZDU-my-748" firstAttribute="top" secondItem="uoP-Mr-aZB" secondAttribute="top" id="Rdp-k3-nhI"/>
                             <constraint firstItem="uoP-Mr-aZB" firstAttribute="trailing" secondItem="FCj-Jx-THU" secondAttribute="trailing" id="S2p-17-EoH"/>
+                            <constraint firstItem="uoP-Mr-aZB" firstAttribute="trailing" secondItem="P7A-1K-KQa" secondAttribute="trailing" constant="10" id="dz2-jY-XM6"/>
                             <constraint firstItem="P7A-1K-KQa" firstAttribute="top" secondItem="J4M-gh-ziI" secondAttribute="bottom" id="hiG-R7-aAF"/>
                             <constraint firstItem="J1z-oo-z9l" firstAttribute="trailing" secondItem="uoP-Mr-aZB" secondAttribute="trailing" id="jgR-wQ-gCL"/>
                             <constraint firstItem="J1z-oo-z9l" firstAttribute="top" secondItem="uoP-Mr-aZB" secondAttribute="top" id="kfk-Td-yV0"/>
@@ -453,7 +453,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KmP-X7-aAZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="YPI-6u-hZu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1975" y="110"/>
+            <point key="canvasLocation" x="1973.913043478261" y="109.82142857142857"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YcB-Nt-18Y">
@@ -763,12 +763,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wmw-nW-xTN"/>
+        <segue reference="EXa-yw-1ZB"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="person.crop.rectangle.fill" catalog="system" width="128" height="93"/>
         <image name="speaker.slash.fill" catalog="system" width="124" height="128"/>
-        <image name="stars" width="2725" height="4096"/>
+        <image name="stars" width="816" height="1056"/>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
